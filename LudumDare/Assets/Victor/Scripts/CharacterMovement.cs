@@ -10,9 +10,7 @@ public class CharacterMovement : MonoBehaviour {
     public float dashSpeed;
     public float dashDist;
     public GameObject dashFX;
-
     public int dashCount = 3;
-
     public GameObject ghost;
 
     bool isDashing;
@@ -113,6 +111,4 @@ public class CharacterMovement : MonoBehaviour {
 
         isDashing = true;
     }
-    
-
 }
