@@ -19,14 +19,25 @@ public class PlayerAbilities : MonoBehaviour
     bool dashBoosted = false;
     bool attackBoosted = false;
     bool shieldBoosted = false;
+    
+
 
     bool buttonPressed;
+
+    ParticleSystem shieldParticles;
+
+    private void Start()
+    {
+        shieldParticles = GameObject.Find("Player_Shield").GetComponent<ParticleSystem>();
+    }
 
     private void Update()
     {
         if (Input.GetButtonDown("BoostShield") && !buttonPressed && coreCount > 0)
         {
             buttonPressed = true;
+            shieldParticles.Play();
+
             coreCount--;
             shieldBoosted = true;
         }
@@ -54,7 +65,8 @@ public class PlayerAbilities : MonoBehaviour
             {
                 dashBoosted = !dashBoosted;
             }
-        }else if (dashCountSlider.value > 1 && !dashBoosted)
+        }
+        else if (dashCountSlider.value > 1 && !dashBoosted)
         {
             dashCountSlider.value = 1;
             GetComponent<CharacterMovement>().dashCount = 1;
