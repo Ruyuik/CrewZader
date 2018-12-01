@@ -21,11 +21,30 @@ public class CharacterMovement : MonoBehaviour {
     float journeyLength;
     float distCovered;
 
+    GameObject Canon_Socket;
+    GameObject Thruster_Socket;
+
+    private void Start()
+    {
+        Canon_Socket = transform.GetChild(1).gameObject;
+        Thruster_Socket = transform.GetChild(0).gameObject;
+
+    }
+
     private void Update()
     {
         if (Input.GetAxis("Horizontal") != 0)
-        { 
-            transform.position += new Vector3(Input.GetAxis("Horizontal")*speed, 0);
+        {
+            transform.position += new Vector3(Input.GetAxis("Horizontal") * speed, 0);
+            if (Input.GetAxis("Horizontal") > 0)
+                Thruster_Socket.transform.GetChild(0).localScale = new Vector3(-1.3f, 1, 1);
+            else if (Input.GetAxis("Horizontal") < 0)
+                Thruster_Socket.transform.GetChild(0).localScale = new Vector3(-0.2f, 1, 1);
+
+        }
+        else
+        {
+            Thruster_Socket.transform.GetChild(0).localScale = new Vector3(-1, 1, 1);
         }
 
         if (Input.GetAxis("Vertical") != 0)
