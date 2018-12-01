@@ -100,8 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e538b3d87ce1fb149b986c9a936b8082, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 0}
-  shootingCooldown: 0
+  bullet: {fileID: 1223763675455264, guid: b25f974d62a01b14487ff31cb579d099, type: 2}
+  shootingCooldown: 0.1
 --- !u!114 &114622911391156880
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -114,6 +114,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.25
+  dashSpeed: 50
+  dashDist: 2.5
 --- !u!212 &212217981105589046
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -152,17 +152,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114619193667765330, guid: c45dbe5e8f4e3c44684fb1551e30442e,
-        type: 2}
-      propertyPath: bullet
-      value: 
-      objectReference: {fileID: 1223763675455264, guid: b25f974d62a01b14487ff31cb579d099,
-        type: 2}
-    - target: {fileID: 114619193667765330, guid: c45dbe5e8f4e3c44684fb1551e30442e,
-        type: 2}
-      propertyPath: shootingCooldown
-      value: 0.1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c45dbe5e8f4e3c44684fb1551e30442e, type: 2}
   m_IsPrefabAsset: 0
