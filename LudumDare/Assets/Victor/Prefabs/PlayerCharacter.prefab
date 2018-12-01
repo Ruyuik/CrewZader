@@ -203,8 +203,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.1
-  dashSpeed: 10
-  dashDist: 1
+  dashSpeed: 20
+  dashDist: 2
+  dashFX: {fileID: 1390346385047420, guid: e11df074b012abd499a5d84348ccaf68, type: 2}
+  dashCount: 3
+  ghost: {fileID: 1153860107521350, guid: 15d5d11fb5f71af44b1fc2d45a3251de, type: 2}
 --- !u!198 &198788547368271116
 ParticleSystem:
   m_ObjectHideFlags: 1

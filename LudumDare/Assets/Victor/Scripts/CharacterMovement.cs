@@ -11,6 +11,8 @@ public class CharacterMovement : MonoBehaviour {
     public float dashDist;
     public GameObject dashFX;
 
+    public int dashCount = 3;
+
     public GameObject ghost;
 
     bool isDashing;
@@ -26,24 +28,34 @@ public class CharacterMovement : MonoBehaviour {
         if (Input.GetAxis("Horizontal") != 0)
         { 
             transform.position += new Vector3(Input.GetAxis("Horizontal")*speed, 0);
-
-            if (Input.GetButtonDown("Dash"))
-            {
-                Dash(new Vector3(Mathf.Sign(Input.GetAxis("Horizontal")), 0));
-            }
         }
 
         if (Input.GetAxis("Vertical") != 0)
         {
             transform.position += new Vector3(0, Input.GetAxis("Vertical") * speed);
-
-            if (Input.GetButtonDown("Dash"))
-            {
-                Dash(new Vector3(0, Mathf.Sign(Input.GetAxis("Vertical"))));
-            }
         }
 
-        //CLAMP BORDERS
+        #region DASH
+        if (Input.GetButtonDown("Dash") && !isDashing && dashCount != 0)
+        {
+            dashCount--;
+            float hDirection;
+            if (Input.GetAxis("Horizontal") != 0)
+                hDirection = Mathf.Sign(Input.GetAxis("Horizontal"));
+            else
+                hDirection = 0;
+
+            float vDirection;
+            if (Input.GetAxis("Vertical") != 0)
+                vDirection = Mathf.Sign(Input.GetAxis("Vertical"));
+            else
+                vDirection = 0;
+            
+                Dash(new Vector3(hDirection, vDirection));
+        }
+        #endregion
+
+        #region CLAMP BORDERS
         if (transform.position.x <= -8)
         {
             transform.position = new Vector2(-8, transform.position.y);
@@ -58,10 +70,11 @@ public class CharacterMovement : MonoBehaviour {
         {
             transform.position = new Vector2(transform.position.x, -4.7f);
         }
+        #endregion
 
+        //COMPUTE DASH
         if (isDashing)
         {
-            Instantiate(ghost, transform.position, transform.rotation);
             distCovered = (Time.time - startingTime) * dashSpeed;
             float fracJourney = distCovered / journeyLength;
             transform.position = Vector3.Lerp(initialPosition, targetPosition, fracJourney);
@@ -69,6 +82,10 @@ public class CharacterMovement : MonoBehaviour {
             if (transform.position == targetPosition)
             {
                 isDashing = false;
+            }
+            else
+            {
+                Instantiate(ghost, transform.position, transform.rotation);
             }
         }
     }
@@ -78,9 +95,24 @@ public class CharacterMovement : MonoBehaviour {
         startingTime = Time.time;
         initialPosition = transform.position;
         targetPosition = transform.position + direction * dashDist;
+        if (targetPosition.x <= -8f)
+        {
+            targetPosition = new Vector3(-8f, targetPosition.y);
+        }
+        if (targetPosition.y >= 4.7f)
+        {
+            targetPosition = new Vector2(targetPosition.x, 4.7f);
+        }
+
+        if (targetPosition.y <= -4.7f)
+        {
+            targetPosition = new Vector2(targetPosition.x, -4.7f);
+        }
+
         journeyLength = Vector3.Distance(targetPosition, initialPosition);
 
         isDashing = true;
     }
+    
 
 }
