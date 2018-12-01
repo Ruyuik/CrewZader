@@ -24,8 +24,11 @@ public class CharacterMovement : MonoBehaviour {
     GameObject Canon_Socket;
     GameObject Thruster_Socket;
 
+    AudioSource audioSourceComponent;
+
     private void Start()
     {
+        audioSourceComponent = GetComponent<AudioSource>();
         Canon_Socket = transform.GetChild(1).gameObject;
         Thruster_Socket = transform.GetChild(0).gameObject;
     }
@@ -102,6 +105,8 @@ public class CharacterMovement : MonoBehaviour {
             else
             {
                 Instantiate(ghost, transform.position, transform.rotation);
+                audioSourceComponent.volume = 0.05f;
+                audioSourceComponent.Play();
             }
         }
     }
