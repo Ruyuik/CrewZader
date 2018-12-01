@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class ScreenManager : MonoBehaviour {
 
     public AudioMixer audioMixer;
 
+    public Slider volumeSlider;
+
+
     // Use this for initialization
     void Start () {
-		
+        AudioListener audioListener = FindObjectOfType<AudioListener>();
 	}
 	
 	// Update is called once per frame
@@ -42,11 +46,6 @@ public class ScreenManager : MonoBehaviour {
 
     public void SetVolume(float volume)
     {
-        audioMixer.SetFloat("volume", volume);
-
-        if (volume == -30)
-        {
-            audioMixer.SetFloat("volume", -80f);
-        }
+        AudioListener.volume = volumeSlider.value;
     }
 }
