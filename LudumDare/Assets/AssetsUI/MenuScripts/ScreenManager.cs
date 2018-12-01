@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class ScreenManager : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    public AudioMixer audioMixer;
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -34,6 +37,16 @@ public class ScreenManager : MonoBehaviour {
         else
         {
             Screen.fullScreen = true;
+        }
+    }
+
+    public void SetVolume(float volume)
+    {
+        audioMixer.SetFloat("volume", volume);
+
+        if (volume == -30)
+        {
+            audioMixer.SetFloat("volume", -80f);
         }
     }
 }
