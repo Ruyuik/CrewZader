@@ -5,8 +5,8 @@ using UnityEngine;
 public class LevelGenerator : MonoBehaviour
 {
 
-    Vector3 start_Visible = new Vector3(17.8f, 0, 0);
-    Vector3 end_Visible = new Vector3(-17.8f, 0, 0);
+    Vector3 start_Visible = new Vector3(17.7f, 0, 0);
+    Vector3 end_Visible = new Vector3(-17.7f, 0, 0);
     public float plansSpeed;
 
     public List<GameObject> level_Plans = new List<GameObject>();
