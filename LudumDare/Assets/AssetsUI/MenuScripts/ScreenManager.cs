@@ -7,14 +7,14 @@ using UnityEngine.UI;
 
 public class ScreenManager : MonoBehaviour {
 
-    public AudioMixer audioMixer;
+    //public AudioMixer audioMixer;
 
     public Slider volumeSlider;
 
 
     // Use this for initialization
     void Start () {
-        AudioListener audioListener = FindObjectOfType<AudioListener>();
+        //AudioListener audioListener = FindObjectOfType<AudioListener>();
 	}
 	
 	// Update is called once per frame
