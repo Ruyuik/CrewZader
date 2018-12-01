@@ -7,6 +7,7 @@ public class BomberBulletBehavior : MonoBehaviour {
     public GameObject fragedBullet;
     public int bulletFragment;
 
+    public int damages;
     public float bulletSpeed;
 
     public int bulletInd;
@@ -22,7 +23,7 @@ public class BomberBulletBehavior : MonoBehaviour {
     {
         if (bulletInd == 0)
         {
-            ymodif = 0.05f;
+            ymodif = 0.02f;
         }
         else if (bulletInd == 1)
         {
@@ -30,7 +31,7 @@ public class BomberBulletBehavior : MonoBehaviour {
         }
         else if (bulletInd == 2)
         {
-            ymodif = -0.05f;
+            ymodif = -0.02f;
         }
         startTimer = Time.time;
         SetFragmentDir();
@@ -73,5 +74,15 @@ public class BomberBulletBehavior : MonoBehaviour {
         {
             fragmentDir.Add(new Vector3(Mathf.Cos(i), Mathf.Sin(i), 0));
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player") == true)
+        {
+            other.GetComponent<PlayerHealth>().playerHealth -= damages;
+
+        }
+        Destroy(gameObject);
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShooterBulletBehavior : MonoBehaviour {
 
+    public int damages;
     public float bulletSpeed;
     
     void Update()
@@ -14,5 +15,14 @@ public class ShooterBulletBehavior : MonoBehaviour {
         {
             Destroy(gameObject);
         }
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player") == true)
+        {
+            other.GetComponent<PlayerHealth>().playerHealth -= damages;
+
+        }
+        Destroy(gameObject);
     }
 }

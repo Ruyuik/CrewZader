@@ -19,9 +19,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4044265718848728}
-  - component: {fileID: 212496388075167892}
   - component: {fileID: 96109417946856490}
   - component: {fileID: 114131350191385076}
+  - component: {fileID: 212587468254292132}
+  - component: {fileID: 58044080756118900}
   m_Layer: 0
   m_Name: BomberBullet
   m_TagString: Untagged
@@ -36,12 +37,27 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1406902987832640}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.662, y: 0.666, z: -0.453}
+  m_LocalPosition: {x: 7.501741, y: 2.682693, z: -0.453}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &58044080756118900
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1406902987832640}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.007, y: -0.0025}
+  serializedVersion: 2
+  m_Radius: 0.035
 --- !u!96 &96109417946856490
 TrailRenderer:
   serializedVersion: 2
@@ -156,12 +172,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fragedBullet: {fileID: 1670296947209760, guid: 3dc9d9998ca25b845b6bc39a585d647a,
     type: 2}
-  bulletFragment: 10
+  bulletFragment: 6
+  damages: 5
   bulletSpeed: 0.5
   bulletInd: 0
-  travelTime: 1
+  travelTime: 2
   fragmentDir: []
---- !u!212 &212496388075167892
+--- !u!212 &212587468254292132
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -195,13 +212,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 49
-  m_Sprite: {fileID: 21300028, guid: af5b5816683b3314a922fd046bf04215, type: 3}
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300046, guid: af5b5816683b3314a922fd046bf04215, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.105000004, y: 0.103}
+  m_Size: {x: 0.25333333, y: 0.26}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

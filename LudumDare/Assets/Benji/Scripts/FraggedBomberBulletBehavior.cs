@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FraggedBomberBulletBehavior : MonoBehaviour {
 
+    public int damages;
     public float bulletSpeed;
 
     public Vector3 bulletDir;
@@ -23,5 +24,15 @@ public class FraggedBomberBulletBehavior : MonoBehaviour {
             Destroy(gameObject);
         }
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player") == true)
+        {
+            other.GetComponent<PlayerHealth>().playerHealth -= damages;
+
+        }
+        Destroy(gameObject);
     }
 }
