@@ -18,7 +18,15 @@ public class GhostDash : MonoBehaviour {
         transform.position = player.transform.position;
         transform.localScale = player.transform.localScale;
 
-        sprite.sprite = player.GetComponent<SpriteRenderer>().sprite;
+        for(int i = 2; i<player.transform.childCount; i++)
+        {
+            if (player.transform.GetChild(i).gameObject.active)
+            {
+                sprite.sprite = player.transform.GetChild(i).GetComponent<SpriteRenderer>().sprite;
+                break;
+            }
+        }
+
         sprite.color = new Vector4(1, 1, 1, 0.25f);
     }
 

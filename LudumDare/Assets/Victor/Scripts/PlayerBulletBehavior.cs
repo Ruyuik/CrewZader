@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerBulletBehavior : MonoBehaviour {
 
+    public float damages;
+
     private void Start()
     {
         GetComponent<SpriteRenderer>().sortingOrder = 50;
