@@ -9,7 +9,9 @@ public class CharacterMovement : MonoBehaviour {
     [Header("Dash")]
     public float dashSpeed;
     public float dashDist;
+    public GameObject dashFX;
 
+    public GameObject ghost;
 
     bool isDashing;
     float startingTime;
@@ -59,6 +61,7 @@ public class CharacterMovement : MonoBehaviour {
 
         if (isDashing)
         {
+            Instantiate(ghost, transform.position, transform.rotation);
             distCovered = (Time.time - startingTime) * dashSpeed;
             float fracJourney = distCovered / journeyLength;
             transform.position = Vector3.Lerp(initialPosition, targetPosition, fracJourney);
@@ -79,5 +82,5 @@ public class CharacterMovement : MonoBehaviour {
 
         isDashing = true;
     }
-    
+
 }

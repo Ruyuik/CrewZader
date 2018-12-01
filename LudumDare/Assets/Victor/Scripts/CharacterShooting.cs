@@ -8,13 +8,17 @@ public class CharacterShooting : MonoBehaviour {
     public float shootingCooldown;
     bool isShooting;
 
+    Vector3 canonPosition;
+
     private void Update()
     {
+        canonPosition = GameObject.Find("Canon").transform.position;
+
         if (Input.GetButton("Fire1") && !isShooting)
         {
             isShooting = true;
             StartCoroutine(CoolingdDown());
-            Instantiate(bullet, transform.position, transform.rotation);
+            Instantiate(bullet, canonPosition, transform.rotation);
         }
     }
 

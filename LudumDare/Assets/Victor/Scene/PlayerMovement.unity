@@ -152,6 +152,28 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114622911391156880, guid: c45dbe5e8f4e3c44684fb1551e30442e,
+        type: 2}
+      propertyPath: dashFX
+      value: 
+      objectReference: {fileID: 1390346385047420, guid: e11df074b012abd499a5d84348ccaf68,
+        type: 2}
+    - target: {fileID: 114622911391156880, guid: c45dbe5e8f4e3c44684fb1551e30442e,
+        type: 2}
+      propertyPath: dashSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114622911391156880, guid: c45dbe5e8f4e3c44684fb1551e30442e,
+        type: 2}
+      propertyPath: dashDist
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114622911391156880, guid: c45dbe5e8f4e3c44684fb1551e30442e,
+        type: 2}
+      propertyPath: ghost
+      value: 
+      objectReference: {fileID: 1153860107521350, guid: 15d5d11fb5f71af44b1fc2d45a3251de,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c45dbe5e8f4e3c44684fb1551e30442e, type: 2}
   m_IsPrefabAsset: 0
