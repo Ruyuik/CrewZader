@@ -6,11 +6,6 @@ public class CharacterMovement : MonoBehaviour {
 
     public float speed;
 
-    private void Start()
-    {
-
-    }
-
     private void Update()
     {
         if (Input.GetAxis("Horizontal") != 0)
@@ -24,19 +19,19 @@ public class CharacterMovement : MonoBehaviour {
         }
 
         //CLAMP BORDERS
-        if (transform.position.x <= -8.25)
+        if (transform.position.x <= -8)
         {
-            transform.position = new Vector2(-8.25f, transform.position.y);
+            transform.position = new Vector2(-8, transform.position.y);
         }
 
-        if (transform.position.y >= 4.5)
+        if (transform.position.y >= 4.7f)
         {
-            transform.position = new Vector2(transform.position.x, 4.5f);
+            transform.position = new Vector2(transform.position.x, 4.7f);
         }
 
-        if (transform.position.y <= -4.5)
+        if (transform.position.y <= -4.7f)
         {
-            transform.position = new Vector2(transform.position.x, -4.5f);
+            transform.position = new Vector2(transform.position.x, -4.7f);
         }
     }
 }
