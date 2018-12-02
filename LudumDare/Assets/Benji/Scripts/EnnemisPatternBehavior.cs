@@ -124,7 +124,6 @@ public class EnnemisPatternBehavior : MonoBehaviour {
                 }
             }
 
-            Debug.Log("0");
 
             if (destroyedEnemy == instantiatedEnemy.Count)
             {
@@ -141,13 +140,11 @@ public class EnnemisPatternBehavior : MonoBehaviour {
         {
             if (enemy_Stats[0].spawnPourcent != 0.25f)
             {
-                Debug.Log("5");
                 enemy_Stats[0].spawnPourcent -= 0.05f;
                 enemy_Stats[1].spawnPourcent += 0.03f;
                 //enemy_Stats[2].spawnPourcent += 0.02f;
                 startPowerInWaves += 3;
             }
-            Debug.Log("1");
 
             waveLastNum = waveNum;
             waveStart = false;
@@ -164,7 +161,6 @@ public class EnnemisPatternBehavior : MonoBehaviour {
             waveStart = true;
             startWaveTimer = Time.time;
         }
-        Debug.Log("2");
 
         waveTimer = Time.time - startWaveTimer;
 
@@ -182,7 +178,7 @@ public class EnnemisPatternBehavior : MonoBehaviour {
         float randomPourcent;
         int debug = 0;
         enemyInd = 0;
-        Debug.Log("3");
+
 
         for (int i = wavePower; i >0; i -= spawnedPower)
         {
@@ -239,8 +235,6 @@ public class EnnemisPatternBehavior : MonoBehaviour {
 
     void SpawnEnemyWave()
     {
-
-        Debug.Log("4");
 
         if (instantiatedEnemy.Count != enemy_ListToSpawn.Count)
         {
