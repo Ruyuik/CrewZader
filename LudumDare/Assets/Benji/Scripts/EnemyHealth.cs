@@ -5,14 +5,18 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour {
 
     public int enemyHealth;
+    GameObject enemyManager;
 
     public GameObject lootCore;
+    public AudioClip lastEnemy;
 
     bool isdead;
 
     public GameObject enemy_Esplosion;
 
 	void Start () {
+        enemyManager = GameObject.Find("EnemyManager");
+
 		if (gameObject.name == "Shooter")
         {
             enemyHealth = 10;
@@ -25,14 +29,22 @@ public class EnemyHealth : MonoBehaviour {
         {
             enemyHealth = 10;
         }
-
     }
 	
 	// Update is called once per frame
 	void Update () {
 
+        if (CheckLastEnemy())
+        {
+            Debug.Log("Last Enemy");
+            GetComponent<AudioSource>().clip = lastEnemy;
+            GetComponent<AudioSource>().volume = 1;
+        }
+
 		if (enemyHealth <= 0 && !isdead )
         {
+            FindObjectOfType<EnnemisPatternBehavior>().destroyedEnemy++;
+
             isdead = true;
 
             float spawnLoot = Random.Range(0.0f, 1.0f);
@@ -43,9 +55,32 @@ public class EnemyHealth : MonoBehaviour {
             }
 
             Instantiate(enemy_Esplosion, transform.position, Quaternion.identity);
+
+            
+            GetComponent<AudioSource>().Play();
+
+            for(int i =0; i < transform.childCount; i++)
+            {
+                transform.GetChild(i).gameObject.SetActive(false);
+            }
+            GetComponent<Collider2D>().enabled = false;
+        }
+
+        if (!GetComponent<AudioSource>().isPlaying && isdead)
+        {
             Destroy(gameObject);
         }
-	}
+    }
+
+    bool CheckLastEnemy()
+    {
+        int remainingEnemies = FindObjectOfType<EnnemisPatternBehavior>().enemy_ListToSpawn.Count - FindObjectOfType<EnnemisPatternBehavior>().destroyedEnemy;
+
+        if (remainingEnemies == 1)
+            return true;
+        else
+            return false;
+    }
 
     void OnCollisionEnter2D(Collision2D other)
     {

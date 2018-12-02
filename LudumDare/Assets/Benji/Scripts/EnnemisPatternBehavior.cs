@@ -18,6 +18,7 @@ public class EnnemisPatternBehavior : MonoBehaviour {
 
     int waveNum;
     int waveLastNum;
+    public int destroyedEnemy;
     public int startPowerInWaves;
     public int powerWaveModif;
 
@@ -103,28 +104,24 @@ public class EnnemisPatternBehavior : MonoBehaviour {
         {
             SpawnEnemyWave();
         }
-
-
-
     }
 
 
+    void CheckDestroyedEnemy()
+    {
+        for (int i = 0; i < instantiatedEnemy.Count; i++)
+        {
+            if (instantiatedEnemy[i] == null)
+            {
+                destroyedEnemy++;
+            }
+        }
+    }
 
     void NextWaveTrigger()
     {
         if (instantiatedEnemy.Count == enemy_ListToSpawn.Count)
         {
-            int destroyedEnemy = 0;
-
-            for (int i = 0; i < instantiatedEnemy.Count; i++)
-            {
-                if (instantiatedEnemy[i] == null)
-                {
-                    destroyedEnemy++;
-                }
-            }
-
-            Debug.Log("0");
 
             if (destroyedEnemy == instantiatedEnemy.Count)
             {
@@ -158,12 +155,13 @@ public class EnnemisPatternBehavior : MonoBehaviour {
 
     void StartNewWave()
     {
+        destroyedEnemy = 0;
+
         if (!waveStart)
         {
             waveStart = true;
             startWaveTimer = Time.time;
         }
-
 
         waveTimer = Time.time - startWaveTimer;
 
