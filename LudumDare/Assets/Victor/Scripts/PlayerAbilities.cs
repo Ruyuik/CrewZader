@@ -19,8 +19,6 @@ public class PlayerAbilities : MonoBehaviour
     bool dashBoosted = false;
     bool attackBoosted = false;
     bool shieldBoosted = false;
-    
-
 
     bool buttonPressed;
 
@@ -33,6 +31,7 @@ public class PlayerAbilities : MonoBehaviour
 
     private void Update()
     {
+
         if (Input.GetButtonDown("BoostShield") && !buttonPressed && coreCount > 0)
         {
             buttonPressed = true;
@@ -46,6 +45,10 @@ public class PlayerAbilities : MonoBehaviour
         {
             buttonPressed = true;
             coreCount--;
+
+            transform.GetChild(4).gameObject.SetActive(false);
+            transform.GetChild(2).gameObject.SetActive(true);
+
             attackBoosted = true;
         }
 
@@ -55,6 +58,10 @@ public class PlayerAbilities : MonoBehaviour
             GetComponent<CharacterMovement>().dashCount = 3;
             dashCountSlider.value = 3;
             coreCount--;
+
+            transform.GetChild(4).gameObject.SetActive(false);
+            transform.GetChild(3).gameObject.SetActive(true);
+
             dashBoosted = true;
         }
 
