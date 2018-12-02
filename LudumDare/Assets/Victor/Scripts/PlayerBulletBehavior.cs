@@ -15,9 +15,12 @@ public class PlayerBulletBehavior : MonoBehaviour {
     void Update () {
         transform.position += new Vector3(0.1f, 0)*speed;
 
-        if (transform.position.x > 15)
+        if (transform.position.x > 20)
         {
-            Destroy(gameObject);
+            if (!GetComponent<AudioSource>().isPlaying)
+            {
+                Destroy(gameObject);
+            }
         }
 	}
 
@@ -27,7 +30,8 @@ public class PlayerBulletBehavior : MonoBehaviour {
         {
             other.GetComponent<EnemyHealth>().enemyHealth -= damages;
 
+            transform.position = new Vector3(25, 0, 0);
         }
-        Destroy(gameObject);
+        
     }
 }
