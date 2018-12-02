@@ -869,7 +869,7 @@ Prefab:
     - target: {fileID: 114908280276282504, guid: 1a559495642b8be4fadd0b2be992e85c,
         type: 2}
       propertyPath: m_Value
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114623329897631984, guid: 1a559495642b8be4fadd0b2be992e85c,
         type: 2}
@@ -1386,7 +1386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathSound: {fileID: 8300000, guid: 363c5e04ff879c448a60876a3c758a74, type: 3}
-  restartButton: {fileID: 0}
+  restartButton: {fileID: 1219171635}
   player_Explosion: {fileID: 1519150660628006, guid: e6afedc291b14a44ea1228e3e81c23a7,
     type: 2}
 --- !u!1 &1219171633
