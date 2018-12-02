@@ -37,6 +37,9 @@ public class PlayerAbilities : MonoBehaviour
             buttonPressed = true;
             shieldParticles.Play();
 
+            FindObjectOfType<Script_ArmorBar>().fullShield();
+            FindObjectOfType<Script_CArmorBar>().fullShield();
+
             coreCount--;
             shieldBoosted = true;
         }
@@ -79,13 +82,7 @@ public class PlayerAbilities : MonoBehaviour
             GetComponent<CharacterMovement>().dashCount = 1;
         }
 
-        UpdateDashes();
         UpdateCoreText();
-    }
-
-    void UpdateDashes()
-    {
-        dashesTextDisplay.text = GetComponent<CharacterMovement>().dashCount.ToString();
     }
 
     void UpdateCoreText()

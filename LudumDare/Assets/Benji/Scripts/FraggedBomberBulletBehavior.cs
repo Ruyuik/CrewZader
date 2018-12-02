@@ -31,9 +31,8 @@ public class FraggedBomberBulletBehavior : MonoBehaviour {
     {
         if (other.CompareTag("Player") == true)
         {
-            other.GetComponent<PlayerHealth>().playerHealth -= damages;
-
+            FindObjectOfType<Script_Health_Armor>().GetDamage(damages);
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
 }
