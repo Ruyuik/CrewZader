@@ -9,9 +9,7 @@ public class PlayerHealth : MonoBehaviour {
     bool isdead;
 
     public ParticleSystem player_Explosion;
-
-
-
+    
     // Update is called once per frame
     void Update()
     {
