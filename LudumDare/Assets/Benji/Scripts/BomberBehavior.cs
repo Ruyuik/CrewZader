@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BomberBehavior : MonoBehaviour {
 
-    
     public GameObject bullet;
     public float shootingCooldown;
     bool isShooting;

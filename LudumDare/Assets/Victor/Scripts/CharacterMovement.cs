@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using XInputDotNetPure;
 
 public class CharacterMovement : MonoBehaviour {
 
@@ -26,6 +27,8 @@ public class CharacterMovement : MonoBehaviour {
 
     AudioSource audioSourceComponent;
 
+    
+
     private void Start()
     {
         audioSourceComponent = GetComponent<AudioSource>();
@@ -34,18 +37,18 @@ public class CharacterMovement : MonoBehaviour {
     }
 
     private void Update()
-    {
+    { 
         if (Input.GetAxis("Horizontal") != 0)
         {
             transform.position += new Vector3(Input.GetAxis("Horizontal") * speed, 0);
             if (Input.GetAxis("Horizontal") > 0)
-                Thruster_Socket.transform.GetChild(0).localScale = new Vector3(-1.3f, 1, 1);
+                Thruster_Socket.transform.GetChild(0).localScale = new Vector3(-1, 1, 1);
             else if (Input.GetAxis("Horizontal") < 0)
                 Thruster_Socket.transform.GetChild(0).localScale = new Vector3(-0.2f, 1, 1);
         }
         else
         {
-            Thruster_Socket.transform.GetChild(0).localScale = new Vector3(-1, 1, 1);
+            Thruster_Socket.transform.GetChild(0).localScale = new Vector3(-0.5f, 1, 0.5f);
         }
 
         if (Input.GetAxis("Vertical") != 0)

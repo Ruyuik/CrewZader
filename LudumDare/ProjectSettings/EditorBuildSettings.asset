@@ -8,10 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: ff1a46cd0deb7b648aca24f7662bd357
-  - enabled: 1
+  - enabled: 0
     path: Assets/Victor/Scene/PlayerMovement.unity
     guid: 25aac21260dea3448be059e76082ed89
   - enabled: 0
     path: Assets/Scenes/Movement.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/UI.unity
+    guid: fe785df81f69b40459726a570c537097
   m_configObjects: {}

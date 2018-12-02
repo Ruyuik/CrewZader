@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShooterBulletBehavior : MonoBehaviour {
 
@@ -20,7 +21,7 @@ public class ShooterBulletBehavior : MonoBehaviour {
     {
         if (other.CompareTag("Player") == true)
         {
-            other.GetComponent<PlayerHealth>().playerHealth -= damages;
+            FindObjectOfType<Script_Health_Armor>().GetDamage(damages);
             Destroy(gameObject);
         }
         

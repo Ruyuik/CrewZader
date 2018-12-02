@@ -34,7 +34,7 @@ public class EnemyHealth : MonoBehaviour {
         {
             isdead = true;
             Instantiate(enemy_Esplosion, transform.position, Quaternion.identity);
-            Destroy(gameObject,0.5f);
+            Destroy(gameObject);
         }
 	}
 
