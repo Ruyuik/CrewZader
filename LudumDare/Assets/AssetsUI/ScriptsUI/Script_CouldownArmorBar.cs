@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Script_CouldownArmorBar : MonoBehaviour {
+public class Script_CouldownArmorBar : MonoBehaviour
+{
+
+    public float value = 0.005f;
 
 	// Use this for initialization
 	void Start () {
@@ -12,7 +15,7 @@ public class Script_CouldownArmorBar : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        gameObject.GetComponent<Slider>().value = gameObject.GetComponent<Slider>().value - 0.005f;
+        gameObject.GetComponent<Slider>().value = gameObject.GetComponent<Slider>().value - value;
 
         if (gameObject.GetComponent<Slider>().value <= 0)
         {

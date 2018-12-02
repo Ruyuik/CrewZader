@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Script_Health_Armor : MonoBehaviour {
 
+    public GameObject player;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -31,6 +33,18 @@ public class Script_Health_Armor : MonoBehaviour {
             transform.GetChild(1).GetComponent<Slider>().value = transform.GetChild(1).GetComponent<Slider>().value - damage;
         }
 
-        else transform.GetChild(0).GetComponent<Slider>().value = transform.GetChild(0).GetComponent<Slider>().value - damage;
+        else
+            transform.GetChild(0).GetComponent<Slider>().value = transform.GetChild(0).GetComponent<Slider>().value - damage;
+
+        StartCoroutine (Invincibility());
+    }
+
+    IEnumerator Invincibility()
+    {
+        player.GetComponent<Collider2D>().enabled = false;
+        Debug.Log("Invincible");
+        yield return new WaitForSeconds(1);
+        player.GetComponent<Collider2D>().enabled = true;
+        Debug.Log("Not Invincible");
     }
 }
