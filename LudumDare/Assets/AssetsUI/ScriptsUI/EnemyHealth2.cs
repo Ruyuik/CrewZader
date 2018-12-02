@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour {
+public class EnemyHealth2 : MonoBehaviour {
 
     public int enemyHealth;
 
@@ -34,6 +34,21 @@ public class EnemyHealth : MonoBehaviour {
         {
             isdead = true;
             Instantiate(enemy_Esplosion, transform.position, Quaternion.identity);
+
+            if (gameObject.name == "Shooter")
+            {
+                GameObject.Find("Score Display").GetComponent<Script_ScoreDisplay>().ScoreUp(10);
+            }
+            if (gameObject.name == "Bomber")
+            {
+                GameObject.Find("Score Display").GetComponent<Script_ScoreDisplay>().ScoreUp(20);
+            }
+            if (gameObject.name == "Lazer")
+            {
+                GameObject.Find("Score Display").GetComponent<Script_ScoreDisplay>().ScoreUp(30);
+            }
+
+            GameObject.Find("MultiplicatorDisplay").GetComponent<Script_Multiplicator>().AddMultiplicator();
             Destroy(gameObject);
         }
 	}
