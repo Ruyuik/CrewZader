@@ -26,9 +26,7 @@ public class CharacterMovement : MonoBehaviour {
     GameObject Thruster_Socket;
 
     AudioSource audioSourceComponent;
-
-    
-
+ 
     private void Start()
     {
         audioSourceComponent = GetComponent<AudioSource>();

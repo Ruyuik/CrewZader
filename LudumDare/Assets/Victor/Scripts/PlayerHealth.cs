@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerHealth : MonoBehaviour {
+public class PlayerHealth : MonoBehaviour
+{
 
     float playerHealth;
 
     bool isdead;
-   public  AudioClip deathSound;
+    public AudioClip deathSound;
+
+    public Button restartButton;
 
     public GameObject player_Explosion;
-    
+
     // Update is called once per frame
     void Update()
     {
@@ -23,13 +26,23 @@ public class PlayerHealth : MonoBehaviour {
             Instantiate(player_Explosion, transform.position, Quaternion.identity);
 
             GetComponent<AudioSource>().clip = deathSound;
+            GetComponent<AudioSource>().Play();
+
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                transform.GetChild(i).gameObject.SetActive(false);
+            }
         }
 
-        if (isdead && !GetComponent<AudioSource>().isPlaying)
+        if (isdead)
         {
-            Destroy(gameObject);
+            restartButton.gameObject.SetActive(true);
+            Time.timeScale = 0;
+
+            if (!GetComponent<AudioSource>().isPlaying)
+            {
+                Destroy(gameObject);
+            }
         }
     }
-
-
 }
