@@ -42,9 +42,7 @@ public class Script_Health_Armor : MonoBehaviour {
     IEnumerator Invincibility()
     {
         player.GetComponent<Collider2D>().enabled = false;
-        Debug.Log("Invincible");
         yield return new WaitForSeconds(1);
         player.GetComponent<Collider2D>().enabled = true;
-        Debug.Log("Not Invincible");
     }
 }

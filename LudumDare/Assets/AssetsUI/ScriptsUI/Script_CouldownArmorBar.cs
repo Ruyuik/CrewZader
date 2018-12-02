@@ -15,7 +15,7 @@ public class Script_CouldownArmorBar : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-        gameObject.GetComponent<Slider>().value = gameObject.GetComponent<Slider>().value - value;
+        gameObject.GetComponent<Slider>().value = gameObject.GetComponent<Slider>().value - value * Time.timeScale;
 
         if (gameObject.GetComponent<Slider>().value <= 0)
         {

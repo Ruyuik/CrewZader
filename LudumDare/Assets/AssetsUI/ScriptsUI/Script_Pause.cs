@@ -9,31 +9,35 @@ public class Script_Pause : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+
+        Time.timeScale = 1;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
         if (Input.GetButtonDown("Pause"))
         {
+            //EnablePauseMenu();
             PauseCheck();            
         }
 	}
 
     public void EnablePauseMenu()
     {
-        Time.timeScale = 0;
         isPause = true;
-        Debug.Log(Time.timeScale);
         pauseMenu.SetActive(true);
+        pauseMenu.transform.GetChild(1).gameObject.SetActive(true);
+        Time.timeScale = 0;
     }
 
     public void DisablePauseMenu()
     {
-        Time.timeScale = 1;
         isPause = false;
-        Debug.Log(Time.timeScale);
+        pauseMenu.transform.GetChild(0).gameObject.SetActive(true);
+        pauseMenu.transform.GetChild(2).gameObject.SetActive(false);
         pauseMenu.SetActive(false);
+        Time.timeScale = 1;
     }
 
     public void PauseCheck()

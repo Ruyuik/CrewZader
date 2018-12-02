@@ -48,4 +48,9 @@ public class ScreenManager : MonoBehaviour {
     {
         AudioListener.volume = volumeSlider.value;
     }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
 }
