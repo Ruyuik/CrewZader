@@ -21,8 +21,8 @@ public class ShooterBulletBehavior : MonoBehaviour {
         if (other.CompareTag("Player") == true)
         {
             other.GetComponent<PlayerHealth>().playerHealth -= damages;
-
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
+        
     }
 }

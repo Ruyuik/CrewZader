@@ -16,7 +16,6 @@ public class ShooterBehavior : MonoBehaviour {
             StartCoroutine(CoolingdDown());
             transform.GetChild(0).GetComponent<ParticleSystem>().Play();
             Instantiate(bullet, transform.position, transform.rotation);
-
         }
     }
 
