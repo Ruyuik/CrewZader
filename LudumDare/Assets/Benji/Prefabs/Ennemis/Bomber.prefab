@@ -285,7 +285,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 884936963c7391040af80dea293bb2a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 1406902987832640, guid: 1707c067ac9d6b5448a2ce4ca131c909, type: 2}
+  fragBullet: {fileID: 1406902987832640, guid: 1707c067ac9d6b5448a2ce4ca131c909, type: 2}
+  bullet: {fileID: 1670296947209760, guid: 1fbf67f8b6fde354a856a5dde320c7d7, type: 2}
   shootingCooldown: 1
 --- !u!114 &114805552196093102
 MonoBehaviour:
@@ -299,6 +300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slowSpeed: 50
+  distToChangeTarget: 0.5
   distToTarget: 0
 --- !u!198 &198067251700252084
 ParticleSystem:

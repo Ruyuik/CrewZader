@@ -147,7 +147,6 @@ public class EnnemisPatternBehavior : MonoBehaviour {
                 //enemy_Stats[2].spawnPourcent += 0.02f;
                 startPowerInWaves += 3;
             }
-            Debug.Log("1");
 
             waveLastNum = waveNum;
             waveStart = false;
@@ -164,7 +163,7 @@ public class EnnemisPatternBehavior : MonoBehaviour {
             waveStart = true;
             startWaveTimer = Time.time;
         }
-        Debug.Log("2");
+
 
         waveTimer = Time.time - startWaveTimer;
 
@@ -182,7 +181,6 @@ public class EnnemisPatternBehavior : MonoBehaviour {
         float randomPourcent;
         int debug = 0;
         enemyInd = 0;
-        Debug.Log("3");
 
         for (int i = wavePower; i >0; i -= spawnedPower)
         {
@@ -240,8 +238,6 @@ public class EnnemisPatternBehavior : MonoBehaviour {
     void SpawnEnemyWave()
     {
 
-        Debug.Log("4");
-
         if (instantiatedEnemy.Count != enemy_ListToSpawn.Count)
         {
             if (!enemySpawned)
@@ -282,13 +278,13 @@ public class EnemySpawnStats{
         {
             enemyShip = my_enemy;
             powerValue = 1;
-            spawnPourcent = 1.00f;
+            spawnPourcent = .5f;
         }
         if (my_enemy.name == "Bomber")
         {
             enemyShip = my_enemy;
             powerValue = 2;
-            spawnPourcent = 0f;
+            spawnPourcent = 0.5f;
         }
         if (my_enemy.name == "Lazer")
         {

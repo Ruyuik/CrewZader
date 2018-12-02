@@ -172,6 +172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damages: 1
   bulletSpeed: 0.25
+  bulletInd: 0
 --- !u!212 &212917323226075660
 SpriteRenderer:
   m_ObjectHideFlags: 1

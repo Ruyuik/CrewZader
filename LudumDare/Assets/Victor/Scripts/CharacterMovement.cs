@@ -95,7 +95,7 @@ public class CharacterMovement : MonoBehaviour {
         #endregion
 
         //COMPUTE DASH
-        if (isDashing && targetPosition != null)
+        if (isDashing && targetPosition != null && initialPosition != null)
         {
             distCovered = (Time.time - startingTime) * dashSpeed;
             float fracJourney = distCovered / journeyLength;

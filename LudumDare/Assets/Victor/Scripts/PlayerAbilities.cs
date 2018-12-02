@@ -24,12 +24,15 @@ public class PlayerAbilities : MonoBehaviour
 
     ParticleSystem shieldParticles;
     ParticleSystem laserBeamParticles;
+    ParticleSystem laserParticles;
+    public GameObject laserBeam;
 
     GameObject constantArmor;
     GameObject boostedArmor;
 
     private void Start()
     {
+        laserParticles = laserBeam.GetComponent<ParticleSystem>();
         shieldParticles = GameObject.Find("Player_Shield").GetComponent<ParticleSystem>();
         laserBeamParticles = GameObject.Find("LaserPowerUp").GetComponent<ParticleSystem>();
 
@@ -69,13 +72,17 @@ public class PlayerAbilities : MonoBehaviour
             transform.GetChild(4).gameObject.SetActive(false);
             laserBeamParticles.Play();
 
+            ParticleSystem.MainModule mainLaserParticles = laserParticles.main;
+            mainLaserParticles.simulationSpeed = 100f;
+
             attackBoosted = true;
+
+            StartCoroutine(PoweringUp());
         }
 
         if (attackBoosted)
             transform.GetChild(2).gameObject.SetActive(true);
-        else
-            laserBeamParticles.Stop();
+
         #endregion
 
         #region Boost Move
@@ -112,6 +119,13 @@ public class PlayerAbilities : MonoBehaviour
         #endregion
 
         UpdateCoreText();
+    }
+    
+    IEnumerator PoweringUp()
+    {
+        yield return new WaitForSeconds(.5f);
+        laserBeamParticles.Stop();
+        Instantiate(laserBeam, transform);
     }
 
     void UpdateCoreText()

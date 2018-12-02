@@ -40,11 +40,11 @@ public class BomberBulletBehavior : MonoBehaviour {
     void Update()
     {
         transform.position += new Vector3(-0.1f*bulletSpeed, ymodif);
+        transform.eulerAngles += new Vector3(0, 0, Random.Range(0f, 10f));
         if (startFragmentation == false)
         {
             BulletFragmentation();
         }
-
 
         if (transform.position.x < -10)
         {
@@ -54,16 +54,15 @@ public class BomberBulletBehavior : MonoBehaviour {
 
     void BulletFragmentation()
     {
-        if (Time.time - startTimer >= travelTime)
+        if (Time.time - startTimer >= travelTime )
         {
             startFragmentation = true;
             for(int i =0; i < bulletFragment; i++)
             {
-                GameObject myNewBullet = Instantiate(fragedBullet, transform.position + fragmentDir[i], Quaternion.identity);
+                GameObject myNewBullet = Instantiate(fragedBullet, transform.position + fragmentDir[i], transform.rotation);
                 myNewBullet.GetComponent<FraggedBomberBulletBehavior>().bulletDir = fragmentDir[i];
             }
             Destroy(gameObject);
-
         }
 
     }
@@ -83,6 +82,10 @@ public class BomberBulletBehavior : MonoBehaviour {
             FindObjectOfType<Script_Health_Armor>().GetDamage(damages);
             Destroy(gameObject);
         }
-        
+
+        if (other.CompareTag("PlayerBullet") == true)
+        {
+            Destroy(gameObject);
+        }        
     }
 }
