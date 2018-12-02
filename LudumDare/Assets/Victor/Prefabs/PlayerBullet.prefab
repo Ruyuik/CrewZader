@@ -39,7 +39,7 @@ Transform:
   m_GameObject: {fileID: 1223763675455264}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.676, y: 2.973, z: -0.0032874076}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damages: 2
-  speed: 5
+  speed: 4
   sparks: {fileID: 1925923835189726, guid: 3f87bab26c6eb2442b69293b27d32467, type: 2}
 --- !u!212 &212358129341123010
 SpriteRenderer:
