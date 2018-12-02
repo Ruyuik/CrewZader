@@ -6,6 +6,8 @@ TagManager:
   tags:
   - FxTemporaire
   - Enemy
+  - DestroyableBullet
+  - PlayerBullet
   layers:
   - Default
   - TransparentFX

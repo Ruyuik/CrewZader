@@ -10,6 +10,7 @@ public class EnemyMouvement : MonoBehaviour {
     float lerpTimer;
     bool lerpTime;
 
+    public float distToChangeTarget;
     public float distToTarget;
 
     EnnemisPatternBehavior my_targetList;
@@ -20,26 +21,21 @@ public class EnemyMouvement : MonoBehaviour {
 	void Start () {
         my_targetList = GameObject.FindObjectOfType<EnnemisPatternBehavior>();
 
-        if (targetPos == null)
-        {
-            targetPos = my_targetList.enemy_NavSpawn[Random.Range(0, my_targetList.enemy_NavSpawn.Count-1)].transform.position;
-        }
-
         if (gameObject.name == "Shooter")
         {
             enemy_NavPoints = my_targetList.enemy_Nav;
         }
         else if (gameObject.name == "Bomber")
         {
-            enemy_NavPoints = my_targetList.enemy_Nav;
+            enemy_NavPoints = my_targetList.enemy_NavFront;
         }
         else if (gameObject.name == "Lazer")
         {
-            enemy_NavPoints = my_targetList.enemy_Nav;
+            enemy_NavPoints = my_targetList.enemy_NavBack;
         }
         else { enemy_NavPoints = my_targetList.enemy_Nav; }
 
-
+        ChooseNewTarget();
     }
 
     // Update is called once per frame
@@ -48,11 +44,11 @@ public class EnemyMouvement : MonoBehaviour {
         if (targetPos != null)
         {
             distToTarget = Vector3.Distance(transform.position, targetPos);
-            if (distToTarget > 0.5f)
+            if (distToTarget > distToChangeTarget)
             {
                 LerpToPoint(targetPos);
             }
-            else if (distToTarget <= 0.5f)
+            else if (distToTarget <= distToChangeTarget)
             {
                 lerpTime = false;
                 ChooseNewTarget();
