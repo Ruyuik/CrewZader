@@ -7,8 +7,6 @@ public class Script_Multiplicator : MonoBehaviour {
 
     public int multiplicator;
     public string S_Multiplicator;
-    public bool isShit;
-    public Animator animator;
 
     // Use this for initialization
     void Start() {
@@ -36,17 +34,11 @@ public class Script_Multiplicator : MonoBehaviour {
 
         else
             transform.parent.localScale = scale;
+
     }
 
     public void ShowMultiplicator()
     {
-        if (multiplicator > 1)
-        {
-            GetComponent<Text>().enabled = true;
-            transform.parent.GetChild(0).GetComponent<Text>().enabled = true;
-            animator.SetInteger("Multiplicator", multiplicator);
-        }
-
         S_Multiplicator = multiplicator.ToString();
         GetComponent<Text>().text = S_Multiplicator;
     }
@@ -54,9 +46,7 @@ public class Script_Multiplicator : MonoBehaviour {
     public void InitiateMultiplicator()
     {
         multiplicator = 1;
-        animator.SetInteger("Multiplicator", multiplicator);
         ShowMultiplicator();
         transform.parent.localScale = new Vector3(1, 1, 1);
-        isShit = false;
     }
 }
