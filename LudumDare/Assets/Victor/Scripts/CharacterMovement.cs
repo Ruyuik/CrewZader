@@ -10,7 +10,7 @@ public class CharacterMovement : MonoBehaviour {
     public float dashSpeed;
     public float dashDist;
     public GameObject dashFX;
-    public int dashCount = 3;
+    public int dashCount;
     public GameObject ghost;
 
     bool isDashing;
@@ -24,11 +24,13 @@ public class CharacterMovement : MonoBehaviour {
     GameObject Canon_Socket;
     GameObject Thruster_Socket;
 
+    AudioSource audioSourceComponent;
+
     private void Start()
     {
+        audioSourceComponent = GetComponent<AudioSource>();
         Canon_Socket = transform.GetChild(1).gameObject;
         Thruster_Socket = transform.GetChild(0).gameObject;
-
     }
 
     private void Update()
@@ -40,7 +42,6 @@ public class CharacterMovement : MonoBehaviour {
                 Thruster_Socket.transform.GetChild(0).localScale = new Vector3(-1.3f, 1, 1);
             else if (Input.GetAxis("Horizontal") < 0)
                 Thruster_Socket.transform.GetChild(0).localScale = new Vector3(-0.2f, 1, 1);
-
         }
         else
         {
@@ -67,8 +68,9 @@ public class CharacterMovement : MonoBehaviour {
                 vDirection = Mathf.Sign(Input.GetAxis("Vertical"));
             else
                 vDirection = 0;
-            
-                Dash(new Vector3(hDirection, vDirection));
+
+            Dash(new Vector3(hDirection, vDirection));
+            GetComponent<PlayerAbilities>().dashCountSlider.value = dashCount;
         }
         #endregion
 
@@ -90,7 +92,7 @@ public class CharacterMovement : MonoBehaviour {
         #endregion
 
         //COMPUTE DASH
-        if (isDashing)
+        if (isDashing && targetPosition != null)
         {
             distCovered = (Time.time - startingTime) * dashSpeed;
             float fracJourney = distCovered / journeyLength;
@@ -103,6 +105,8 @@ public class CharacterMovement : MonoBehaviour {
             else
             {
                 Instantiate(ghost, transform.position, transform.rotation);
+                audioSourceComponent.volume = 0.05f;
+                audioSourceComponent.Play();
             }
         }
     }

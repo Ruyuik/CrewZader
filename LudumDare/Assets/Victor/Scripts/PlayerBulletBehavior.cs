@@ -4,17 +4,34 @@ using UnityEngine;
 
 public class PlayerBulletBehavior : MonoBehaviour {
 
+    public int damages;
+    public float speed;
+
     private void Start()
     {
-        GetComponent<SpriteRenderer>().sortingOrder = 50;
+        GetComponent<SpriteRenderer>().sortingOrder = 49;
     }
 
     void Update () {
-        transform.position += new Vector3(0.5f, 0);
+        transform.position += new Vector3(0.1f, 0)*speed;
 
-        if (transform.position.x > 100)
+        if (transform.position.x > 20)
         {
-            Destroy(gameObject);
+            if (!GetComponent<AudioSource>().isPlaying)
+            {
+                Destroy(gameObject);
+            }
         }
 	}
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy") == true)
+        {
+            other.GetComponent<EnemyHealth>().enemyHealth -= damages;
+
+            transform.position = new Vector3(25, 0, 0);
+        }
+        
+    }
 }
