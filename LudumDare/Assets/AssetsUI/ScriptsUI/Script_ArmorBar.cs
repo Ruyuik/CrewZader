@@ -23,5 +23,6 @@ public class Script_ArmorBar : MonoBehaviour {
     public void fullShield()
     {
         GetComponent<Slider>().value = GetComponent<Slider>().maxValue;
+        transform.GetChild(0).gameObject.SetActive(true);
     }
 }
