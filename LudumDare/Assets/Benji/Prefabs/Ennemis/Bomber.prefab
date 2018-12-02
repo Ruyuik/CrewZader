@@ -272,7 +272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHealth: 10
-  enemy_Esplosion: {fileID: 198261744609076628, guid: 598db4f7a7bfe904da8e599bfa1e17f5,
+  enemy_Esplosion: {fileID: 1338445600397172, guid: 598db4f7a7bfe904da8e599bfa1e17f5,
     type: 2}
 --- !u!114 &114337630908532864
 MonoBehaviour:

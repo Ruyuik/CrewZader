@@ -298,7 +298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1a7904401643e74b8463a93ed3795f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 1006861779031020, guid: 46248eeb1f7ba2a479769cb7a7345fa1, type: 2}
+  bullet: {fileID: 1670296947209760, guid: 1fbf67f8b6fde354a856a5dde320c7d7, type: 2}
   shootingCooldown: 0.5
 --- !u!114 &114737267662538166
 MonoBehaviour:
@@ -312,7 +312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHealth: 10
-  enemy_Esplosion: {fileID: 198261744609076628, guid: 598db4f7a7bfe904da8e599bfa1e17f5,
+  enemy_Esplosion: {fileID: 1338445600397172, guid: 598db4f7a7bfe904da8e599bfa1e17f5,
     type: 2}
 --- !u!198 &198021867928678186
 ParticleSystem:

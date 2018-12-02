@@ -23,6 +23,7 @@ public class FraggedBomberBulletBehavior : MonoBehaviour {
         {
             Destroy(gameObject);
         }
+        Destroy(gameObject, 3);
 
     }
 
