@@ -53,5 +53,4 @@ public class ScreenManager : MonoBehaviour {
     {
         SceneManager.LoadScene(0);
     }
-
 }
