@@ -19,4 +19,9 @@ public class Script_ArmorBar : MonoBehaviour {
     {
         GetComponent<Slider>().value = GetComponent<Slider>().value - value;
     }
+
+    public void fullShield()
+    {
+        GetComponent<Slider>().value = GetComponent<Slider>().maxValue;
+    }
 }

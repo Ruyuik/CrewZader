@@ -7,9 +7,13 @@ public class PlayerBulletBehavior : MonoBehaviour {
     public int damages;
     public float speed;
 
+    public GameObject sparks;
+
     private void Start()
     {
         GetComponent<SpriteRenderer>().sortingOrder = 49;
+        ParticleSystem.MainModule main = sparks.GetComponent<ParticleSystem>().main;
+        main.simulationSpeed = 4.5f;
     }
 
     void Update () {
@@ -24,12 +28,12 @@ public class PlayerBulletBehavior : MonoBehaviour {
         }
 	}
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.CompareTag("Enemy") == true)
+        if (other.collider.CompareTag("Enemy") == true)
         {
-            other.GetComponent<EnemyHealth>().enemyHealth -= damages;
-
+            other.collider.GetComponent<EnemyHealth>().enemyHealth -= damages;
+            Instantiate(sparks, other.contacts[0].point, transform.rotation);
             transform.position = new Vector3(25, 0, 0);
         }
         
