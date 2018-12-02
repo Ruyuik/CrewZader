@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Script_Health_Armor : MonoBehaviour {
 
     public GameObject player;
+    public GameObject multiplicatorDisplay;
 
 	// Use this for initialization
 	void Start () {
@@ -36,6 +37,7 @@ public class Script_Health_Armor : MonoBehaviour {
         else
             transform.GetChild(0).GetComponent<Slider>().value = transform.GetChild(0).GetComponent<Slider>().value - damage;
 
+        multiplicatorDisplay.GetComponent<Script_Multiplicator>().InitiateMultiplicator();
         StartCoroutine (Invincibility());
     }
 
