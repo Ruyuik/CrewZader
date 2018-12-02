@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using XInputDotNetPure;
 
 public class CharacterShooting : MonoBehaviour {
 
@@ -9,9 +10,14 @@ public class CharacterShooting : MonoBehaviour {
     bool isShooting;
 
     Vector3 canonPosition;
-
+    
     GameObject Canon_Socket;
     GameObject Thruster_Socket;
+
+    bool playerIndexSet = false;
+    PlayerIndex playerIndex;
+    GamePadState state;
+    GamePadState prevState;
 
     private void Start()
     {
@@ -21,14 +27,39 @@ public class CharacterShooting : MonoBehaviour {
 
     private void Update()
     {
+        #region Detect Controller
+        if (!playerIndexSet || !prevState.IsConnected)
+        {
+            for (int i = 0; i < 4; ++i)
+            {
+                PlayerIndex testPlayerIndex = (PlayerIndex)i;
+                GamePadState testState = GamePad.GetState(testPlayerIndex);
+                if (testState.IsConnected)
+                {
+                    playerIndex = testPlayerIndex;
+                    playerIndexSet = true;
+                }
+            }
+        }
+
+        prevState = state;
+        state = GamePad.GetState(playerIndex);
+        #endregion
+
         canonPosition = Canon_Socket.transform.position;
         
         if (Input.GetButton("Fire1") && !isShooting)
         {
+            GamePad.SetVibration(playerIndex, 0.3f, 0.0f);
             isShooting = true;
             Canon_Socket.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
             StartCoroutine(CoolingdDown());
             Instantiate(bullet, canonPosition, transform.rotation);
+        }
+
+        if (Input.GetButtonUp("Fire1"))
+        {
+            GamePad.SetVibration(playerIndex, 0, 0);
         }
     }
 
