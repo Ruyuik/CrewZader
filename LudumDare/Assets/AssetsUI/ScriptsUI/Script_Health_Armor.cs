@@ -22,13 +22,14 @@ public class Script_Health_Armor : MonoBehaviour {
 
     public void GetDamage(float damage)
     {
-        if (transform.GetChild(2).GetComponent<Slider>().value > 0)
+
+        if (transform.GetChild(2).GetComponent<Slider>().value > 0 && transform.GetChild(2).GetComponent<Slider>().value % 1 == 0)
         {
             transform.GetChild(2).GetComponent<Slider>().value = transform.GetChild(2).GetComponent<Slider>().value - damage;
             transform.GetChild(2).GetChild(0).GetComponent<Script_CouldownArmorBar>().RefillCouldownBar();
         }
 
-        else if (transform.GetChild(1).GetComponent<Slider>().value > 0)
+        else if (transform.GetChild(1).GetComponent<Slider>().value > 0 && transform.GetChild(1).GetComponent<Slider>().value % 1 == 0)
         {
             transform.GetChild(1).GetComponent<Slider>().value = transform.GetChild(1).GetComponent<Slider>().value - damage;
         }
