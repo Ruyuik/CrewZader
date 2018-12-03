@@ -16,7 +16,7 @@ public class PlayerHealth : MonoBehaviour
 
     float tempValue = 1;
 
-    bool isdead;
+    public bool isdead;
     
     public GameObject ButtonWrapper;
 
@@ -67,6 +67,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (isdead)
         {
+            Application.LoadLevel(4);
             ToggleRestartMenu();
 
             GamePad.SetVibration(playerIndex, 0.0f, 0.0f);

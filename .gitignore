@@ -35,3 +35,7 @@ sysinfo.txt
 *.apk
 *.unitypackage
 LudumDare/Assets/Benji/Sprites/Particles/Circle_1.mat
+LudumDare/Assets/bastFiles/Scripts/GetScore.cs.meta
+LudumDare/Assets/bastFiles/Scripts.meta
+LudumDare/Assets/bastFiles/Scenes/Endgame.unity.meta
+LudumDare/Assets/bastFiles/Scenes.meta
