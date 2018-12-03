@@ -16,6 +16,7 @@ public class SetScore : MonoBehaviour
 		getScoreScript = FindObjectOfType<GetScore>();
 
 		scoreText.text = getScoreScript.GetStaticScore().ToString();
+		Debug.Log(getScoreScript.GetStaticScore());
 	}
 	
 	// Update is called once per frame

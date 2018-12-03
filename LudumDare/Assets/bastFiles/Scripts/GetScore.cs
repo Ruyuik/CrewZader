@@ -12,13 +12,17 @@ public class GetScore : MonoBehaviour
 	void Start ()
 	{
 		scoreScript = FindObjectOfType<ScoreScript>();
+		Debug.Log(scoreScript);
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		score = scoreScript.playerScore;
-
+		if (scoreScript != null)
+		{
+			score = scoreScript.playerScore;
+			Debug.Log(score);
+		}
 			
 	}
 
@@ -27,7 +31,7 @@ public class GetScore : MonoBehaviour
 		return score;
 	}
 
-	public void setScoreTo0()
+	public static void setScoreTo0()
 	{
 		score = 0;
 	}
