@@ -5,6 +5,7 @@ using XInputDotNetPure;
 
 public class EnemyHealth : MonoBehaviour {
 
+    public int enemyNum;
     public int enemyHealth;
     GameObject enemyManager;
 
@@ -15,22 +16,26 @@ public class EnemyHealth : MonoBehaviour {
 
     public GameObject enemy_Esplosion;
 
-   
+    int enemyValue;
 
     void Start () {
         enemyManager = GameObject.Find("EnemyManager");
 
-		if (gameObject.name == "Shooter")
+		if (enemyNum == 0)
+        {
+            enemyHealth = 5;
+            enemyValue = 5;
+        }else
+        if (enemyNum == 1)
         {
             enemyHealth = 10;
-        }
-        if (gameObject.name == "Bomber")
+            enemyValue = 10;
+
+        }else
+        if (enemyNum == 2)
         {
-            enemyHealth = 10;
-        }
-        if (gameObject.name == "Lazer")
-        {
-            enemyHealth = 10;
+            enemyHealth = 12;
+            enemyValue = 15;
         }
     }
 	
@@ -61,7 +66,9 @@ public class EnemyHealth : MonoBehaviour {
             
             GetComponent<AudioSource>().Play();
 
+            Debug.Log(enemyValue);
             FindObjectOfType<Script_Multiplicator>().AddMultiplicator();
+            FindObjectOfType<ScoreScript>().AddPoints(enemyValue);
 
             for(int i =0; i < transform.childCount; i++)
             {
