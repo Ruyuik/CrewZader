@@ -166,6 +166,7 @@ public class EnnemisPatternBehavior : MonoBehaviour {
 
         if (waveTimer >= waveTime)
         {
+            GetComponent<AudioSource>().Play();
             waveGenState = 2;
         }
     }
