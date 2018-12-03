@@ -581,9 +581,12 @@ MonoBehaviour:
   coreTextDisplay: {fileID: 0}
   dashesTextDisplay: {fileID: 0}
   dashCountSlider: {fileID: 0}
-  dashReload: 0
-  powerBoostDuration: 0
-  laserBeam: {fileID: 0}
+  dashReload: 0.05
+  powerBoostDuration: 2.5
+  laserBeam: {fileID: 1294849607651598, guid: 2b249995b37626a488203ce2443b9489, type: 2}
+  shieldSlider: {fileID: 0}
+  damageSlider: {fileID: 0}
+  dashSlider: {fileID: 0}
 --- !u!198 &198096619074819330
 ParticleSystem:
   m_ObjectHideFlags: 1

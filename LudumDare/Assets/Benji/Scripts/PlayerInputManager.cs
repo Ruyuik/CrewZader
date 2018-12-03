@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class PlayerInputManager {
 
-    public static int controllerInd;
+    public static int controllerInd = 0;
 
     public static void ChooseController(int index)
     {
@@ -15,12 +15,12 @@ public static class PlayerInputManager {
     {
         if (controllerInd == 0)
         {
-            return Input.GetButtonDown("KeybordFire");
+            return Input.GetButton("KeybordFire");
 
         }
         else if(controllerInd == 1)
         {
-            return Input.GetButtonDown("ControllerFire");
+            return Input.GetButton("ControllerFire");
 
         }
 
