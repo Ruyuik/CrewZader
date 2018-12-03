@@ -57,7 +57,7 @@ public class CharacterShooting : MonoBehaviour {
             Instantiate(bullet, canonPosition, transform.rotation);
         }
 
-        if (PlayerInputManager.Shoot())
+        if (PlayerInputManager.ShootUp())
         {
             GamePad.SetVibration(playerIndex, 0, 0);
         }

@@ -143,6 +143,7 @@ GameObject:
   - component: {fileID: 82783838887398074}
   - component: {fileID: 114164428844968286}
   - component: {fileID: 114888041876195266}
+  - component: {fileID: 114700136348985736}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Player
@@ -532,7 +533,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ea9813c1bcc1e14c8cb5ec876cfbc44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathSound: {fileID: 8300000, guid: 363c5e04ff879c448a60876a3c758a74, type: 3}
   ButtonWrapper: {fileID: 0}
   player_Explosion: {fileID: 1519150660628006, guid: e6afedc291b14a44ea1228e3e81c23a7,
     type: 2}
@@ -566,6 +566,26 @@ MonoBehaviour:
   dashFX: {fileID: 1390346385047420, guid: e11df074b012abd499a5d84348ccaf68, type: 2}
   dashCount: 1
   ghost: {fileID: 1153860107521350, guid: 15d5d11fb5f71af44b1fc2d45a3251de, type: 2}
+--- !u!114 &114700136348985736
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1553843258394768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aec9d23fe6e62db4998550434b8842ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 90d47f1a68606c64d93c2068787a2232, type: 3}
+  - {fileID: 8300000, guid: a09dec46ba2f5a847b35d3d63b1b5c9b, type: 3}
+  - {fileID: 8300000, guid: 363c5e04ff879c448a60876a3c758a74, type: 3}
+  - {fileID: 8300000, guid: 53075ec240f8cd64fad639f5610f36fd, type: 3}
+  - {fileID: 8300000, guid: db7953898f0b0194cb1b1672bd5e5a35, type: 3}
+  - {fileID: 8300000, guid: 45fb67bd61bdc7746bb2016967b1affd, type: 3}
+  - {fileID: 8300000, guid: 2ff0522c4da0eb94fbd2b0a5d5b73d58, type: 3}
+  - {fileID: 8300000, guid: b9525362c68f38c40a4a7794fab3e247, type: 3}
 --- !u!114 &114888041876195266
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -582,7 +602,6 @@ MonoBehaviour:
   dashesTextDisplay: {fileID: 0}
   dashCountSlider: {fileID: 0}
   dashReload: 0.05
-  powerBoostDuration: 2.5
   laserBeam: {fileID: 1294849607651598, guid: 2b249995b37626a488203ce2443b9489, type: 2}
   shieldSlider: {fileID: 0}
   damageSlider: {fileID: 0}
@@ -23472,7 +23491,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 50
+  m_SortingOrder: 49
   m_Sprite: {fileID: 21300050, guid: af5b5816683b3314a922fd046bf04215, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -23518,7 +23537,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 50
+  m_SortingOrder: 48
   m_Sprite: {fileID: 21300052, guid: af5b5816683b3314a922fd046bf04215, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

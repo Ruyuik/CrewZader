@@ -110,8 +110,7 @@ public class CharacterMovement : MonoBehaviour {
             else
             {
                 Instantiate(ghost, transform.position, transform.rotation);
-                audioSourceComponent.volume = 0.05f;
-                audioSourceComponent.Play();
+                GetComponent<PlayerSoundManager>().PlayClip(0);
             }
         }
     }

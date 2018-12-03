@@ -51,7 +51,7 @@ public class Script_Multiplicator : MonoBehaviour {
 
     public void InitiateMultiplicator()
     {
-        multiplicator = 0;
+        multiplicator = 1;
         ShowMultiplicator();
         transform.parent.localScale = new Vector3(1, 1, 1);
     }
