@@ -14,6 +14,8 @@ public class PlayerHealth : MonoBehaviour
     bool anounceMade = false;
     float playerHealth;
 
+    float tempValue = 1;
+
     bool isdead;
     
     public GameObject ButtonWrapper;
@@ -73,9 +75,18 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    public void LostShield(GameObject caller)
+    {
+        float newValue = caller.GetComponent<Slider>().value;
+        if(tempValue > newValue)
+            GetComponent<PlayerSoundManager>().PlayClip(1, .1f);
+
+        tempValue = newValue;
+    }
+
     public void LostHealth()
     {
-        GetComponent<PlayerSoundManager>().PlayClip(1, .1f);
+        GetComponent<PlayerSoundManager>().PlayClip(3);
     }
 
     public void ToggleRestartMenu()

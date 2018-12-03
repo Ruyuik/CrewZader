@@ -75,12 +75,15 @@ public class PlayerAbilities : MonoBehaviour
             coreCount--;
             shieldBoosted = true;
             shieldSlider.gameObject.SetActive(true);
+
+            GetComponent<PlayerSoundManager>().PlayClip(4);
         }
 
         if (boostedArmor.GetComponent<Slider>().value == 0 && shieldBoosted)
         {
             shieldBoosted = !shieldBoosted;
             shieldParticles.Stop();
+            GetComponent<PlayerSoundManager>().PlayClip(5);
         }
 
         if (shieldBoosted)
@@ -104,7 +107,7 @@ public class PlayerAbilities : MonoBehaviour
 
             attackBoosted = true;
 
-
+            GetComponent<PlayerSoundManager>().PlayClip(7);
             StartCoroutine(PoweringUp());
         }
 
@@ -129,6 +132,7 @@ public class PlayerAbilities : MonoBehaviour
             dashSlider.gameObject.SetActive(true);
 
             dashBoosted = true;
+            GetComponent<PlayerSoundManager>().PlayClip(6);
         }
 
         if (dashCountSlider.value < 1)
