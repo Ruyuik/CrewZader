@@ -66,7 +66,6 @@ public class EnemyHealth : MonoBehaviour {
             
             GetComponent<AudioSource>().Play();
 
-            Debug.Log(enemyValue);
             FindObjectOfType<Script_Multiplicator>().AddMultiplicator();
             FindObjectOfType<ScoreScript>().AddPoints(enemyValue);
 

@@ -329,6 +329,11 @@ Prefab:
       propertyPath: ButtonWrapper
       value: 
       objectReference: {fileID: 524765291}
+    - target: {fileID: 114888041876195266, guid: c45dbe5e8f4e3c44684fb1551e30442e,
+        type: 2}
+      propertyPath: dashReload
+      value: 0.005
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c45dbe5e8f4e3c44684fb1551e30442e, type: 2}
   m_IsPrefabAsset: 0
@@ -345,7 +350,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1038029918}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd8b9a2e05d13e746baf6c7c7e65a784, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e909cd3c7de0284d9a728c1e2ecaa51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1038029920 stripped
@@ -609,7 +614,7 @@ Prefab:
     - target: {fileID: 114746555005915902, guid: 92e4e37898bfe2b40909bf8c284bde9a,
         type: 2}
       propertyPath: m_Value
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92e4e37898bfe2b40909bf8c284bde9a, type: 2}

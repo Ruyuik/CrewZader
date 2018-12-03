@@ -12,7 +12,6 @@ public class GetScore : MonoBehaviour
 	void Start ()
 	{
 		scoreScript = FindObjectOfType<ScoreScript>();
-		Debug.Log(scoreScript);
 	}
 	
 	// Update is called once per frame

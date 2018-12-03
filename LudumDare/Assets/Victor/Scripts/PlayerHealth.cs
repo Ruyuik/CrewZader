@@ -67,7 +67,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (isdead)
         {
-            Application.LoadLevel(4);
+            Application.LoadLevel(3);
             ToggleRestartMenu();
 
             GamePad.SetVibration(playerIndex, 0.0f, 0.0f);

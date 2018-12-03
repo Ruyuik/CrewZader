@@ -24,8 +24,6 @@ public class ScoreScript : MonoBehaviour {
 
     public void AddPoints(int enemyValue)
     {
-
-
             playerScore += enemyValue * multiplicator;
 
     }
