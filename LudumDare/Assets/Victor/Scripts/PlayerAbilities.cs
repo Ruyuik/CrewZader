@@ -47,7 +47,7 @@ public class PlayerAbilities : MonoBehaviour
     private void Update()
     {
         #region Boost Shield
-        if (Input.GetButtonDown("BoostShield") && !buttonPressed && coreCount > 0)
+        if (PlayerInputManager.PowerShield() && !buttonPressed && coreCount > 0)
         {
             buttonPressed = true;
             shieldParticles.Play();
@@ -68,7 +68,7 @@ public class PlayerAbilities : MonoBehaviour
         #endregion
 
         #region Boost Damage
-        if (Input.GetButtonDown("BoostDamage") && !buttonPressed && coreCount > 0 && !attackBoosted)
+        if (PlayerInputManager.PowerWeapon() && !buttonPressed && coreCount > 0 && !attackBoosted)
         {
             buttonPressed = true;
             coreCount--;
@@ -99,7 +99,7 @@ public class PlayerAbilities : MonoBehaviour
         #endregion
 
         #region Boost Move
-        if (Input.GetButtonDown("BoostMove") && !buttonPressed && coreCount > 0)
+        if (PlayerInputManager.PowerDash() && !buttonPressed && coreCount > 0)
         {
             buttonPressed = true;
             GetComponent<CharacterMovement>().dashCount = 3;

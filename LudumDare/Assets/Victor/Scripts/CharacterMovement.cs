@@ -36,12 +36,12 @@ public class CharacterMovement : MonoBehaviour {
 
     private void Update()
     { 
-        if (Input.GetAxis("Horizontal") != 0)
+        if (PlayerInputManager.HorizontalAxis() != 0)
         {
-            transform.position += new Vector3(Input.GetAxis("Horizontal") * speed, 0);
-            if (Input.GetAxis("Horizontal") > 0)
+            transform.position += new Vector3(PlayerInputManager.HorizontalAxis() * speed, 0);
+            if (PlayerInputManager.HorizontalAxis() > 0)
                 Thruster_Socket.transform.GetChild(0).localScale = new Vector3(-1, 1, 1);
-            else if (Input.GetAxis("Horizontal") < 0)
+            else if (PlayerInputManager.HorizontalAxis() < 0)
                 Thruster_Socket.transform.GetChild(0).localScale = new Vector3(-0.2f, 1, 1);
         }
         else
@@ -49,13 +49,13 @@ public class CharacterMovement : MonoBehaviour {
             Thruster_Socket.transform.GetChild(0).localScale = new Vector3(-0.5f, 1, 0.5f);
         }
 
-        if (Input.GetAxis("Vertical") != 0)
+        if (PlayerInputManager.VerticalAxis() != 0)
         {
-            transform.position += new Vector3(0, Input.GetAxis("Vertical") * speed);
+            transform.position += new Vector3(0, PlayerInputManager.VerticalAxis() * speed);
         }
 
         #region DASH
-        if (Input.GetButtonDown("Dash") && !isDashing && dashCount != 0)
+        if (PlayerInputManager.Dash() && !isDashing && dashCount != 0)
         {
             dashCount--;
             float hDirection;

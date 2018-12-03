@@ -16,7 +16,7 @@ public class Script_Pause : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (Input.GetButtonDown("Pause"))
+        if (PlayerInputManager.Pause())
         {
             //EnablePauseMenu();
             PauseCheck();            

@@ -48,7 +48,7 @@ public class CharacterShooting : MonoBehaviour {
 
         canonPosition = Canon_Socket.transform.position;
         
-        if (Input.GetButton("Fire1") && !isShooting)
+        if (PlayerInputManager.Shoot() && !isShooting)
         {
             GamePad.SetVibration(playerIndex, 0.3f, 0.0f);
             isShooting = true;
@@ -57,7 +57,7 @@ public class CharacterShooting : MonoBehaviour {
             Instantiate(bullet, canonPosition, transform.rotation);
         }
 
-        if (Input.GetButtonUp("Fire1"))
+        if (PlayerInputManager.Shoot())
         {
             GamePad.SetVibration(playerIndex, 0, 0);
         }
