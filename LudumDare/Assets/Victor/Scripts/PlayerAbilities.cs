@@ -12,20 +12,24 @@ public class PlayerAbilities : MonoBehaviour
     public Text coreTextDisplay;
     public Text dashesTextDisplay;
 
+    [Header("Dash boost")]
     public Slider dashCountSlider;
-
     public float dashReload;
-
     bool dashBoosted = false;
+
+    [Header("Damage boost")]
+    public float powerBoostDuration;
+    float endingTime;
     bool attackBoosted = false;
+    ParticleSystem laserBeamParticles;
+    ParticleSystem laserParticles;
+    public GameObject laserBeam;
+
     bool shieldBoosted = false;
 
     bool buttonPressed;
 
     ParticleSystem shieldParticles;
-    ParticleSystem laserBeamParticles;
-    ParticleSystem laserParticles;
-    public GameObject laserBeam;
 
     GameObject constantArmor;
     GameObject boostedArmor;
@@ -64,10 +68,12 @@ public class PlayerAbilities : MonoBehaviour
         #endregion
 
         #region Boost Damage
-        if (Input.GetButtonDown("BoostDamage") && !buttonPressed && coreCount > 0)
+        if (Input.GetButtonDown("BoostDamage") && !buttonPressed && coreCount > 0 && !attackBoosted)
         {
             buttonPressed = true;
             coreCount--;
+
+            endingTime = Time.time + powerBoostDuration;
 
             transform.GetChild(4).gameObject.SetActive(false);
             laserBeamParticles.Play();
@@ -81,7 +87,15 @@ public class PlayerAbilities : MonoBehaviour
         }
 
         if (attackBoosted)
+        {
             transform.GetChild(2).gameObject.SetActive(true);
+            if (Time.time >= endingTime)
+            {
+                Debug.Log("CEASE FIRE");
+                Destroy(transform.Find("Lazer(Clone)").gameObject);
+                attackBoosted = false;
+            }
+        }
 
         #endregion
 

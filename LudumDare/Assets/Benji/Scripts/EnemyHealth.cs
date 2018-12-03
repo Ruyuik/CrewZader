@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using XInputDotNetPure;
 
 public class EnemyHealth : MonoBehaviour {
 
@@ -14,7 +15,9 @@ public class EnemyHealth : MonoBehaviour {
 
     public GameObject enemy_Esplosion;
 
-	void Start () {
+   
+
+    void Start () {
         enemyManager = GameObject.Find("EnemyManager");
 
 		if (gameObject.name == "Shooter")
@@ -36,7 +39,6 @@ public class EnemyHealth : MonoBehaviour {
 
         if (CheckLastEnemy())
         {
-            Debug.Log("Last Enemy");
             GetComponent<AudioSource>().clip = lastEnemy;
             GetComponent<AudioSource>().volume = 1;
         }
@@ -63,11 +65,13 @@ public class EnemyHealth : MonoBehaviour {
             {
                 transform.GetChild(i).gameObject.SetActive(false);
             }
+            
             GetComponent<Collider2D>().enabled = false;
         }
 
         if (!GetComponent<AudioSource>().isPlaying && isdead)
         {
+            
             Destroy(gameObject);
         }
     }

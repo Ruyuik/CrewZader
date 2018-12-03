@@ -155,7 +155,7 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c45dbe5e8f4e3c44684fb1551e30442e, type: 2}
   m_IsPrefabAsset: 0
---- !u!1001 &1701783975
+--- !u!1001 &1449588846
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -194,12 +194,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 212555362689844182, guid: 751299d1baf0bb544b19a6f1da6219a0,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 8190e21a4397ef741927865fe593dd90,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 751299d1baf0bb544b19a6f1da6219a0, type: 2}
   m_IsPrefabAsset: 0

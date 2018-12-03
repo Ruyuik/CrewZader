@@ -117,14 +117,11 @@ public class EnnemisPatternBehavior : MonoBehaviour {
             }
         }
     }
-
-<<<<<<< HEAD
-=======
+    
     void NextWaveTrigger()
     {
         if (instantiatedEnemy.Count == enemy_ListToSpawn.Count)
         {
->>>>>>> 810946a5e1fe08234baa5876b0cd4365263a20b7
 
             if (destroyedEnemy == instantiatedEnemy.Count)
             {
@@ -181,10 +178,6 @@ public class EnnemisPatternBehavior : MonoBehaviour {
         float randomPourcent;
         int debug = 0;
         enemyInd = 0;
-<<<<<<< HEAD
-
-=======
->>>>>>> 810946a5e1fe08234baa5876b0cd4365263a20b7
 
         for (int i = wavePower; i >0; i -= spawnedPower)
         {
@@ -233,6 +226,7 @@ public class EnnemisPatternBehavior : MonoBehaviour {
             {
                 i = 0;
             }
+            
 
         }
 

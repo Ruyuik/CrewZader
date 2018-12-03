@@ -10,7 +10,7 @@ public class Script_Health_Armor : MonoBehaviour {
     Material defaultMat;
     public Material blinkMat;
 
-    public GameObject multiplicatorDisplay;
+    //public GameObject multiplicatorDisplay;
 
     bool playerIndexSet = false;
     PlayerIndex playerIndex;
@@ -76,7 +76,7 @@ public class Script_Health_Armor : MonoBehaviour {
         else
             transform.GetChild(0).GetComponent<Slider>().value = transform.GetChild(0).GetComponent<Slider>().value - damage;
 
-        multiplicatorDisplay.GetComponent<Script_Multiplicator>().InitiateMultiplicator();
+        //multiplicatorDisplay.GetComponent<Script_Multiplicator>().InitiateMultiplicator();
         StartCoroutine (Invincibility());
     }
 

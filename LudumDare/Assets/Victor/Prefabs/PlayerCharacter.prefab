@@ -142,6 +142,7 @@ GameObject:
   - component: {fileID: 114619193667765330}
   - component: {fileID: 114835875261580282}
   - component: {fileID: 82783838887398074}
+  - component: {fileID: 114164428844968286}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Player
@@ -284,7 +285,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1553843258394768}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.226, y: 1.652, z: 0}
+  m_LocalPosition: {x: -8, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4088209589838302}
@@ -317,8 +318,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1608728190101282}
   m_LocalRotation: {x: -0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0.004, y: 0.093, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.006, y: 0.093, z: 0}
+  m_LocalScale: {x: -0.5, y: 1, z: 0.5}
   m_Children: []
   m_Father: {fileID: 4088209589838302}
   m_RootOrder: 0
@@ -520,6 +521,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnlyDeactivate: 0
+--- !u!114 &114164428844968286
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1553843258394768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea9813c1bcc1e14c8cb5ec876cfbc44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathSound: {fileID: 8300000, guid: 363c5e04ff879c448a60876a3c758a74, type: 3}
+  ButtonWrapper: {fileID: 0}
+  player_Explosion: {fileID: 1519150660628006, guid: e6afedc291b14a44ea1228e3e81c23a7,
+    type: 2}
 --- !u!114 &114619193667765330
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -566,6 +582,8 @@ MonoBehaviour:
   dashesTextDisplay: {fileID: 0}
   dashCountSlider: {fileID: 0}
   dashReload: 0.005
+  powerReload: 0.005
+  laserBeam: {fileID: 1294849607651598, guid: 2b249995b37626a488203ce2443b9489, type: 2}
 --- !u!198 &198096619074819330
 ParticleSystem:
   m_ObjectHideFlags: 1

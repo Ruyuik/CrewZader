@@ -18,10 +18,19 @@ public class LevelGenerator : MonoBehaviour
     public List<Sprite> Panel3_List = new List<Sprite>();
     public List<Sprite> Panel4_List = new List<Sprite>();
 
-    Sprite selectedSprite;
+    public Sprite[] FirstPlan;
+    public Sprite[] SecondPlan;
+    public Sprite[] ThirdPlan;
+    public Sprite[] Background;
+
+    private void Start()
+    {
+
+    }
+
 
     // Use this for initialization
-    void Awake()
+    /*void Awake()
     {
         for (int i = 0; i < transform.childCount; i++)
         {
@@ -35,31 +44,66 @@ public class LevelGenerator : MonoBehaviour
         start_Visible = new Vector3(xlimit, 0, 0);
         end_Visible = new Vector3(-xlimit, 0, 0);
     }
-
+    */
     // Update is called once per frame
     void Update()
     {
         SpritePlanMove();
-        SpritePlanInstantiation();
-        SpritePlanDestruction();
+        //SpritePlanInstantiation();
+        //SpritePlanDestruction();
     }
 
     void SpritePlanMove()
     {
-        for (int i = 0; i < level_SpritePlans.Count; i++)
+        for (int i = 0; i < transform.childCount; i++)
         {
+            transform.GetChild(i).position += new Vector3(-.1f, 0, 0) * plansSpeed * (i % 4 + 1);
 
-            level_SpritePlans[i].transform.position += new Vector3(-0.1f, 0, 0) * plansSpeed * (level_SpritePlans[i].transform.parent.transform.GetSiblingIndex()+1);
-
-
-        }
-        for (int i = 0; i < level_LastSpritePlans.Count; i++)
-        {
-            level_LastSpritePlans[i].transform.position += new Vector3(-0.1f, 0, 0) * plansSpeed * (level_LastSpritePlans[i].transform.parent.transform.GetSiblingIndex() + 1);
-
+            if (transform.GetChild(i).position.x <= -19)
+            {
+                transform.GetChild(i).position = new Vector3(19, transform.GetChild(i).position.y, transform.GetChild(i).position.z);
+                transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = RandomizeSprite(i%4 );
+            }
         }
     }
 
+    Sprite RandomizeSprite(int planIndex)
+    {
+        Sprite selectedSprite = null;
+        int rand = 0;
+
+        switch (planIndex)
+        {
+            case 0:
+                rand = Random.Range(0, Background.Length);
+                selectedSprite =  Background[rand];
+                break;
+
+            case 1:
+                rand = Random.Range(0, ThirdPlan.Length);
+                selectedSprite = ThirdPlan[rand];
+                break;
+
+            case 2:
+                rand = Random.Range(0, SecondPlan.Length);
+                selectedSprite = SecondPlan[rand];
+                break;
+
+            case 3:
+                rand = Random.Range(0, FirstPlan.Length);
+                selectedSprite = FirstPlan[rand];
+                break;
+
+            default:
+                Debug.Log("Unrecognized Index");
+                Debug.Break();
+                break;
+        }
+
+        return selectedSprite;
+    }
+
+    /*
     void SpritePlanInstantiation()
     {
         for (int i = 0; i < level_SpritePlans.Count; i++)
@@ -106,6 +150,6 @@ public class LevelGenerator : MonoBehaviour
             }
 
         }
-    }
+    }*/
 
 }
