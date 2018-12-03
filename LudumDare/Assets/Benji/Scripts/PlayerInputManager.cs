@@ -11,6 +11,22 @@ public static class PlayerInputManager {
         controllerInd = index;
     }
 
+    public static bool ShootUp()
+    {
+        if (controllerInd == 0)
+        {
+            return Input.GetButtonUp("KeybordFire");
+
+        }
+        else if(controllerInd == 1)
+        {
+            return Input.GetButtonUp("ControllerFire");
+
+        }
+
+        return false;
+    }
+
     public static bool Shoot()
     {
         if (controllerInd == 0)
@@ -18,7 +34,7 @@ public static class PlayerInputManager {
             return Input.GetButton("KeybordFire");
 
         }
-        else if(controllerInd == 1)
+        else if (controllerInd == 1)
         {
             return Input.GetButton("ControllerFire");
 

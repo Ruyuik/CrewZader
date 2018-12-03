@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class PlayerAbilities : MonoBehaviour
 {
-
     public int coreCount = 5;
     int maxCoreCount = 10;
 
@@ -18,7 +17,6 @@ public class PlayerAbilities : MonoBehaviour
     bool dashBoosted = false;
 
     [Header("Damage boost")]
-    public float powerBoostDuration;
     float endingTime;
     bool attackBoosted = false;
     ParticleSystem laserBeamParticles;
@@ -61,9 +59,9 @@ public class PlayerAbilities : MonoBehaviour
         else
             multiplyRate = 1;
 
-        shieldSlider.value -= emptyingRate*multiplyRate;
-        damageSlider.value -= emptyingRate* multiplyRate;
-        dashSlider.value -= emptyingRate * multiplyRate;
+        shieldSlider.value -= emptyingRate * multiplyRate * Time.timeScale;
+        damageSlider.value -= emptyingRate * multiplyRate * Time.timeScale;
+        dashSlider.value -= emptyingRate * multiplyRate * Time.timeScale;
 
         #region Boost Shield
         if (PlayerInputManager.PowerShield() && !buttonPressed && coreCount > 0)
@@ -84,6 +82,11 @@ public class PlayerAbilities : MonoBehaviour
             shieldBoosted = !shieldBoosted;
             shieldParticles.Stop();
         }
+
+        if (shieldBoosted)
+        {
+            GameObject.Find("Shield_Couldown_Bar").GetComponent<Slider>().value = GameObject.Find("Shield_Couldown_Bar").GetComponent<Slider>().value - (emptyingRate * Time.timeScale * multiplyRate);
+        }
         #endregion
 
         #region Boost Damage
@@ -92,16 +95,15 @@ public class PlayerAbilities : MonoBehaviour
             buttonPressed = true;
             coreCount--;
 
-            endingTime = Time.time + powerBoostDuration;
-
             transform.GetChild(4).gameObject.SetActive(false);
+            damageSlider.gameObject.SetActive(true);
             laserBeamParticles.Play();
 
             ParticleSystem.MainModule mainLaserParticles = laserParticles.main;
             mainLaserParticles.simulationSpeed = 100f;
 
             attackBoosted = true;
-            damageSlider.gameObject.SetActive(true);
+
 
             StartCoroutine(PoweringUp());
         }
@@ -109,12 +111,9 @@ public class PlayerAbilities : MonoBehaviour
         if (attackBoosted)
         {
             transform.GetChild(2).gameObject.SetActive(true);
-            if (Time.time >= endingTime)
-            {
-                Destroy(transform.Find("Lazer(Clone)").gameObject);
-                attackBoosted = false;
-            }
         }
+
+
         #endregion
 
         #region Boost Move
@@ -126,7 +125,7 @@ public class PlayerAbilities : MonoBehaviour
             coreCount--;
 
             transform.GetChild(4).gameObject.SetActive(false);
-            
+
             dashSlider.gameObject.SetActive(true);
 
             dashBoosted = true;
@@ -153,6 +152,15 @@ public class PlayerAbilities : MonoBehaviour
         #endregion
 
         UpdateCoreText();
+    }
+
+    public void StopLaser()
+    {
+        if (attackBoosted)
+        {
+            Destroy(transform.Find("Lazer(Clone)").gameObject);
+            attackBoosted = false;
+        }
     }
 
     IEnumerator PoweringUp()

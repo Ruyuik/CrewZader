@@ -582,7 +582,6 @@ MonoBehaviour:
   dashesTextDisplay: {fileID: 0}
   dashCountSlider: {fileID: 0}
   dashReload: 0.05
-  powerBoostDuration: 2.5
   laserBeam: {fileID: 1294849607651598, guid: 2b249995b37626a488203ce2443b9489, type: 2}
   shieldSlider: {fileID: 0}
   damageSlider: {fileID: 0}
@@ -23472,7 +23471,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 50
+  m_SortingOrder: 49
   m_Sprite: {fileID: 21300050, guid: af5b5816683b3314a922fd046bf04215, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -23518,7 +23517,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 50
+  m_SortingOrder: 48
   m_Sprite: {fileID: 21300052, guid: af5b5816683b3314a922fd046bf04215, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

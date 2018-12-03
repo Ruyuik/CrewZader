@@ -11,10 +11,10 @@ public class PlayerHealth : MonoBehaviour
     GamePadState state;
     GamePadState prevState;
 
+    bool anounceMade = false;
     float playerHealth;
 
     bool isdead;
-    public AudioClip deathSound;
     
     public GameObject ButtonWrapper;
 
@@ -43,13 +43,14 @@ public class PlayerHealth : MonoBehaviour
 
         playerHealth = FindObjectOfType<Script_Health_Armor>().transform.GetChild(0).GetComponent<Slider>().value;
 
+        
+
         if (playerHealth <= 0 && !isdead)
         {
             isdead = true;
             Instantiate(player_Explosion, transform.position, Quaternion.identity);
 
-            GetComponent<AudioSource>().clip = deathSound;
-            GetComponent<AudioSource>().Play();
+            GetComponent<PlayerSoundManager>().PlayClip(2);
 
             for (int i = 0; i < transform.childCount; i++)
             {
@@ -70,6 +71,11 @@ public class PlayerHealth : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+    }
+
+    public void LostHealth()
+    {
+        GetComponent<PlayerSoundManager>().PlayClip(1, .1f);
     }
 
     public void ToggleRestartMenu()
