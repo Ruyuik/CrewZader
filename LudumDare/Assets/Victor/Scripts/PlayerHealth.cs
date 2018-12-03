@@ -45,6 +45,11 @@ public class PlayerHealth : MonoBehaviour
 
         playerHealth = FindObjectOfType<Script_Health_Armor>().transform.GetChild(0).GetComponent<Slider>().value;
 
+        if (!anounceMade && playerHealth == 1)
+        {
+            anounceMade = true;
+            GetComponent<PlayerSoundManager>().PlayClip(8);
+        }
         
 
         if (playerHealth <= 0 && !isdead)

@@ -173,7 +173,7 @@ MonoBehaviour:
   fragedBullet: {fileID: 1670296947209760, guid: 3dc9d9998ca25b845b6bc39a585d647a,
     type: 2}
   bulletFragment: 6
-  damages: 5
+  damages: 1
   bulletSpeed: 0.25
   bulletInd: 0
   travelTime: 2
