@@ -11,6 +11,11 @@ public class PlayerSoundManager : MonoBehaviour {
     {
         source.clip = clips[i];
         source.volume = s;
+        if (i == 8)
+            source.pitch = 1;
+        else
+            source.pitch = 2;
+
         source.Play();
     }
 
