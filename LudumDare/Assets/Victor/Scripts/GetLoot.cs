@@ -20,6 +20,7 @@ public class GetLoot : MonoBehaviour {
     {
         if (other.CompareTag("Player"))
         {
+            GetComponent<AudioSource>().Play();
             playerCharacter = other.gameObject;
 
             startingTime = Time.time;
@@ -28,6 +29,7 @@ public class GetLoot : MonoBehaviour {
             journeyLength = Vector3.Distance(initLerp, TargetLerp);
 
             pickedUp = true;
+            
         }
     }
 
@@ -42,8 +44,12 @@ public class GetLoot : MonoBehaviour {
 
         if (transform.position == TargetLerp)
         {
-            playerCharacter.GetComponent<PlayerAbilities>().coreCount++;
-            Destroy(gameObject);
+            transform.GetComponent<SpriteRenderer>().enabled = false;
+            if (!GetComponent<AudioSource>().isPlaying)
+            {
+                playerCharacter.GetComponent<PlayerAbilities>().coreCount++;
+                Destroy(gameObject);
+            }
         }
 
     }
