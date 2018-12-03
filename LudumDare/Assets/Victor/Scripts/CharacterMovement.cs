@@ -59,14 +59,14 @@ public class CharacterMovement : MonoBehaviour {
         {
             dashCount--;
             float hDirection;
-            if (Input.GetAxis("Horizontal") != 0)
-                hDirection = Mathf.Sign(Input.GetAxis("Horizontal"));
+            if (PlayerInputManager.HorizontalAxis() != 0)
+                hDirection = Mathf.Sign(PlayerInputManager.HorizontalAxis());
             else
                 hDirection = 0;
 
             float vDirection;
-            if (Input.GetAxis("Vertical") != 0)
-                vDirection = Mathf.Sign(Input.GetAxis("Vertical"));
+            if (PlayerInputManager.VerticalAxis() != 0)
+                vDirection = Mathf.Sign(PlayerInputManager.VerticalAxis());
             else
                 vDirection = 0;
 

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Script_Multiplicator : MonoBehaviour {
 
-    public int multiplicator;
+    public int multiplicator = 0;
     public string S_Multiplicator;
 
     // Use this for initialization
@@ -15,10 +15,15 @@ public class Script_Multiplicator : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (Input.GetKeyDown(KeyCode.M))
+
+        if (multiplicator < 2)
         {
-            AddMultiplicator();
+            transform.parent.GetChild(0).GetComponent<Text>().text = "";
+            transform.parent.GetChild(1).GetComponent<Text>().text = "";
         }
+        else
+            transform.parent.GetChild(0).GetComponent<Text>().text = "x";
+        
     }
 
     public void AddMultiplicator()
@@ -29,13 +34,14 @@ public class Script_Multiplicator : MonoBehaviour {
 
         if (multiplicator < 40)
         {
-            transform.parent.localScale += new Vector3(0.05f, 0.05f, 0.05f);
+            transform.parent.localScale += new Vector3(0.005f, 0.005f, 0.005f);
         }
 
         else
             transform.parent.localScale = scale;
 
     }
+    
 
     public void ShowMultiplicator()
     {
@@ -45,7 +51,7 @@ public class Script_Multiplicator : MonoBehaviour {
 
     public void InitiateMultiplicator()
     {
-        multiplicator = 1;
+        multiplicator = 0;
         ShowMultiplicator();
         transform.parent.localScale = new Vector3(1, 1, 1);
     }

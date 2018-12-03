@@ -61,6 +61,8 @@ public class EnemyHealth : MonoBehaviour {
             
             GetComponent<AudioSource>().Play();
 
+            FindObjectOfType<Script_Multiplicator>().AddMultiplicator();
+
             for(int i =0; i < transform.childCount; i++)
             {
                 transform.GetChild(i).gameObject.SetActive(false);
