@@ -35,6 +35,10 @@ public class PlayerAbilities : MonoBehaviour
     public Slider damageSlider;
     public Slider dashSlider;
 
+    public ParticleSystem shieldEffectParticles;
+    public ParticleSystem damageEffectParticles;
+    public ParticleSystem dashEffectParticle;
+
     ParticleSystem shieldParticles;
 
     GameObject constantArmor;
@@ -66,6 +70,7 @@ public class PlayerAbilities : MonoBehaviour
         #region Boost Shield
         if (PlayerInputManager.PowerShield() && !buttonPressed && coreCount > 0)
         {
+            shieldEffectParticles.Play();
             buttonPressed = true;
             shieldParticles.Play();
 
@@ -95,6 +100,7 @@ public class PlayerAbilities : MonoBehaviour
         #region Boost Damage
         if (PlayerInputManager.PowerWeapon() && !buttonPressed && coreCount > 0 && !attackBoosted)
         {
+            damageEffectParticles.Play();
             buttonPressed = true;
             coreCount--;
 
@@ -122,6 +128,7 @@ public class PlayerAbilities : MonoBehaviour
         #region Boost Move
         if (PlayerInputManager.PowerDash() && !buttonPressed && coreCount > 0)
         {
+            dashEffectParticle.Play();
             buttonPressed = true;
             GetComponent<CharacterMovement>().dashCount = 3;
             dashCountSlider.value = 3;
