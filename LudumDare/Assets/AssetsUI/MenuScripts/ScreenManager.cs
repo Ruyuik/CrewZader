@@ -22,9 +22,9 @@ public class ScreenManager : MonoBehaviour {
 		
 	}
 
-    public void NewRun()
+    public void NewRun(string sceneName)
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(sceneName);
     }
 
     public void QuitGame()
