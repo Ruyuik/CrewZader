@@ -26,9 +26,7 @@ public class CharacterMovement : MonoBehaviour {
     GameObject Thruster_Socket;
 
     AudioSource audioSourceComponent;
-
-    
-
+ 
     private void Start()
     {
         audioSourceComponent = GetComponent<AudioSource>();
@@ -82,6 +80,10 @@ public class CharacterMovement : MonoBehaviour {
         {
             transform.position = new Vector2(-8, transform.position.y);
         }
+        if (transform.position.x >= 8)
+        {
+            transform.position = new Vector2(8, transform.position.y);
+        }
 
         if (transform.position.y >= 4.7f)
         {
@@ -95,7 +97,7 @@ public class CharacterMovement : MonoBehaviour {
         #endregion
 
         //COMPUTE DASH
-        if (isDashing && targetPosition != null)
+        if (isDashing)
         {
             distCovered = (Time.time - startingTime) * dashSpeed;
             float fracJourney = distCovered / journeyLength;
@@ -123,6 +125,10 @@ public class CharacterMovement : MonoBehaviour {
         {
             targetPosition = new Vector3(-8f, targetPosition.y);
         }
+        if (targetPosition.x >= 8f)
+        {
+            targetPosition = new Vector3(8f, targetPosition.y);
+        }
         if (targetPosition.y >= 4.7f)
         {
             targetPosition = new Vector2(targetPosition.x, 4.7f);
@@ -136,5 +142,12 @@ public class CharacterMovement : MonoBehaviour {
         journeyLength = Vector3.Distance(targetPosition, initialPosition);
 
         isDashing = true;
+    }
+
+    IEnumerator Invincibility()
+    {
+        GetComponent<Collider2D>().enabled = false;
+        yield return new WaitForSeconds(.25f);
+        GetComponent<Collider2D>().enabled = true;
     }
 }

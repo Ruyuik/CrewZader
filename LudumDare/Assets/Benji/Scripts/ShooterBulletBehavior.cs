@@ -7,10 +7,26 @@ public class ShooterBulletBehavior : MonoBehaviour {
 
     public int damages;
     public float bulletSpeed;
-    
+    public int bulletInd;
+
+    float ymodify;
+
+    public void InitDirection() {
+        switch (bulletInd)
+        {
+            case 0:
+                ymodify = -.02f;
+                break;
+
+            case 2:
+                ymodify = .02f;
+                break;
+        }
+    }
+
     void Update()
     {
-        transform.position += new Vector3(-0.5f*bulletSpeed, 0);
+        transform.position += new Vector3(-0.5f * bulletSpeed, ymodify);
 
         if (transform.position.x < -10)
         {

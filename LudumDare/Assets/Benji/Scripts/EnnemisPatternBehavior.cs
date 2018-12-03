@@ -18,6 +18,7 @@ public class EnnemisPatternBehavior : MonoBehaviour {
 
     int waveNum;
     int waveLastNum;
+    public int destroyedEnemy;
     public int startPowerInWaves;
     public int powerWaveModif;
 
@@ -103,27 +104,27 @@ public class EnnemisPatternBehavior : MonoBehaviour {
         {
             SpawnEnemyWave();
         }
-
-
-
     }
 
 
+    void CheckDestroyedEnemy()
+    {
+        for (int i = 0; i < instantiatedEnemy.Count; i++)
+        {
+            if (instantiatedEnemy[i] == null)
+            {
+                destroyedEnemy++;
+            }
+        }
+    }
 
+<<<<<<< HEAD
+=======
     void NextWaveTrigger()
     {
         if (instantiatedEnemy.Count == enemy_ListToSpawn.Count)
         {
-            int destroyedEnemy = 0;
-
-            for (int i = 0; i < instantiatedEnemy.Count; i++)
-            {
-                if (instantiatedEnemy[i] == null)
-                {
-                    destroyedEnemy++;
-                }
-            }
-
+>>>>>>> 810946a5e1fe08234baa5876b0cd4365263a20b7
 
             if (destroyedEnemy == instantiatedEnemy.Count)
             {
@@ -156,6 +157,8 @@ public class EnnemisPatternBehavior : MonoBehaviour {
 
     void StartNewWave()
     {
+        destroyedEnemy = 0;
+
         if (!waveStart)
         {
             waveStart = true;
@@ -178,7 +181,10 @@ public class EnnemisPatternBehavior : MonoBehaviour {
         float randomPourcent;
         int debug = 0;
         enemyInd = 0;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 810946a5e1fe08234baa5876b0cd4365263a20b7
 
         for (int i = wavePower; i >0; i -= spawnedPower)
         {
@@ -276,13 +282,13 @@ public class EnemySpawnStats{
         {
             enemyShip = my_enemy;
             powerValue = 1;
-            spawnPourcent = 1.00f;
+            spawnPourcent = .5f;
         }
         if (my_enemy.name == "Bomber")
         {
             enemyShip = my_enemy;
             powerValue = 2;
-            spawnPourcent = 0f;
+            spawnPourcent = 0.5f;
         }
         if (my_enemy.name == "Lazer")
         {

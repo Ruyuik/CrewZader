@@ -1,28 +1,48 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class PlayerHealth : MonoBehaviour {
+public class PlayerHealth : MonoBehaviour
+{
 
-    public int playerHealth;
+    float playerHealth;
 
     bool isdead;
+    public AudioClip deathSound;
 
-    public ParticleSystem player_Explosion;
+    public Button restartButton;
 
-
+    public GameObject player_Explosion;
 
     // Update is called once per frame
     void Update()
     {
-        if (playerHealth <= 0 && isdead)
+        playerHealth = FindObjectOfType<Script_Health_Armor>().transform.GetChild(0).GetComponent<Slider>().value;
+
+        if (playerHealth <= 0 && !isdead)
         {
             isdead = true;
             Instantiate(player_Explosion, transform.position, Quaternion.identity);
 
-            Destroy(gameObject,0.5f);
+            GetComponent<AudioSource>().clip = deathSound;
+            GetComponent<AudioSource>().Play();
+
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                transform.GetChild(i).gameObject.SetActive(false);
+            }
+        }
+
+        if (isdead)
+        {
+            restartButton.gameObject.SetActive(true);
+            Time.timeScale = 0;
+
+            if (!GetComponent<AudioSource>().isPlaying)
+            {
+                Destroy(gameObject);
+            }
         }
     }
-
-
 }
