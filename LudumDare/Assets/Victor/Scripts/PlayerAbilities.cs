@@ -96,7 +96,6 @@ public class PlayerAbilities : MonoBehaviour
                 attackBoosted = false;
             }
         }
-
         #endregion
 
         #region Boost Move
