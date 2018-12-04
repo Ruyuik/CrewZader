@@ -136,9 +136,9 @@ public class EnnemisPatternBehavior : MonoBehaviour {
     {
         if (waveNum != waveLastNum)
         {
-            if (enemy_Stats[0].spawnPourcent != 0.25f)
+            if (enemy_Stats[0].spawnPourcent <= 0.25f)
             {
-                enemy_Stats[0].spawnPourcent -= 0.05f;
+                enemy_Stats[0].spawnPourcent -= 0.03f;
                 enemy_Stats[1].spawnPourcent += 0.03f;
                 //enemy_Stats[2].spawnPourcent += 0.02f;
                 startPowerInWaves += 3;
@@ -177,13 +177,13 @@ public class EnnemisPatternBehavior : MonoBehaviour {
         int wavePower = startPowerInWaves;
         int spawnedPower = 0;
         float randomPourcent;
-        int debug = 0;
+        //int debug = 0;
         enemyInd = 0;
 
         for (int i = wavePower; i >0; i -= spawnedPower)
         {
             randomPourcent = Random.Range(0f, 1f);
-            debug++;
+            //debug++;
 
 
             if (randomPourcent <= enemy_Stats[0].spawnPourcent)
@@ -198,7 +198,8 @@ public class EnnemisPatternBehavior : MonoBehaviour {
                     spawnedPower = 0;
                 }
             }
-            else if (randomPourcent >= enemy_Stats[0].spawnPourcent && randomPourcent < enemy_Stats[0].spawnPourcent + enemy_Stats[1].spawnPourcent)
+            else if (randomPourcent >= 1 - enemy_Stats[1].spawnPourcent)
+            //if (randomPourcent >= enemy_Stats[0].spawnPourcent && randomPourcent < enemy_Stats[0].spawnPourcent + enemy_Stats[1].spawnPourcent)
             {
                 if (enemy_Stats[1].powerValue <= i)
                 {
@@ -210,23 +211,23 @@ public class EnnemisPatternBehavior : MonoBehaviour {
                     spawnedPower = 0;
                 }
             }
-            else if (randomPourcent >= 1 - enemy_Stats[2].spawnPourcent)
-            {
-                if (enemy_Stats[2].powerValue <= i)
-                {
-                    enemy_ListToSpawn.Add(enemy_Stats[2].enemyShip);
-                    spawnedPower = enemy_Stats[2].powerValue;
-                }
-                else
-                {
-                    spawnedPower = 0;
-                }
-            }
+            //else if (randomPourcent >= 1 - enemy_Stats[2].spawnPourcent)
+            //{
+            //    if (enemy_Stats[2].powerValue <= i)
+            //    {
+            //        enemy_ListToSpawn.Add(enemy_Stats[2].enemyShip);
+            //        spawnedPower = enemy_Stats[2].powerValue;
+            //    }
+            //    else
+            //    {
+            //        spawnedPower = 0;
+            //    }
+            //}
 
-            if (debug > 10*wavePower)
-            {
-                i = 0;
-            }
+            //if (debug > 10*wavePower)
+            //{
+            //    i = 0;
+            //}
             
 
         }
@@ -285,11 +286,11 @@ public class EnemySpawnStats{
             powerValue = 2;
             spawnPourcent = 0.5f;
         }
-        if (my_enemy.name == "Lazer")
-        {
-            enemyShip = my_enemy;
-            powerValue = 3;
-            spawnPourcent = 0;
-        }
+        //if (my_enemy.name == "Lazer")
+        //{
+        //    enemyShip = my_enemy;
+        //    powerValue = 3;
+        //    spawnPourcent = 0;
+        //}
     }
 }
