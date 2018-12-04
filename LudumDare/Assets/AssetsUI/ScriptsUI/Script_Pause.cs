@@ -18,7 +18,7 @@ public class Script_Pause : MonoBehaviour {
 
         if (PlayerInputManager.Pause())
         {
-            //EnablePauseMenu();
+
             PauseCheck();            
         }
 	}
@@ -46,8 +46,9 @@ public class Script_Pause : MonoBehaviour {
         {
             EnablePauseMenu();
         }
-
         else
+        {
             DisablePauseMenu();
+        }
     }
 }

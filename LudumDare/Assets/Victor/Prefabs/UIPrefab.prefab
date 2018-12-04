@@ -1594,6 +1594,7 @@ GameObject:
   - component: {fileID: 222177788292235540}
   - component: {fileID: 114898713755249274}
   - component: {fileID: 114709070855857984}
+  - component: {fileID: 114005754199380272}
   m_Layer: 5
   m_Name: ResumeButton
   m_TagString: Untagged
@@ -1716,6 +1717,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45193b50e736c154390f73989e4d6e40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114005754199380272
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1982418590780544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c995a41e12d6294996ed53475e04106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 1640694469880044}
+  isPause: 0
 --- !u!114 &114017966055575788
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3936,8 +3950,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: DisablePauseMenu
+      - m_Target: {fileID: 114005754199380272}
+        m_MethodName: PauseCheck
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
