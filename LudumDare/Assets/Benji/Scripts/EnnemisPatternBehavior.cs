@@ -141,7 +141,11 @@ public class EnnemisPatternBehavior : MonoBehaviour {
                 enemy_Stats[0].spawnPourcent -= 0.03f;
                 enemy_Stats[1].spawnPourcent += 0.03f;
                 //enemy_Stats[2].spawnPourcent += 0.02f;
-                startPowerInWaves += 3;
+
+            }
+            if(waveNum < 10000)
+            {
+                startPowerInWaves += powerWaveModif;
             }
 
             waveLastNum = waveNum;

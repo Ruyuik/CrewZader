@@ -1236,10 +1236,10 @@ MonoBehaviour:
   enemy_ListToSpawn: []
   instantiatedEnemy: []
   destroyedEnemy: 0
-  startPowerInWaves: 0
-  powerWaveModif: 2
-  waveTime: 5
-  spawnTime: 2
+  startPowerInWaves: 3
+  powerWaveModif: 3
+  waveTime: 3
+  spawnTime: 1
 --- !u!212 &212103240292811938
 SpriteRenderer:
   m_ObjectHideFlags: 1
